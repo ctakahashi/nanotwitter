@@ -1,0 +1,42 @@
+<div class="jumbotron settings">
+	<h2 position = "top: 0px" style = "color:white" class = "forgot-header">Change Settings:</h2>
+	<p style = "color:white" class = "forgot-header">Fill out the information and hit the "Save Changes" button when you're done </p>
+	<form role="form" action="/edit" method="PUT">
+		<div class="form-group signup-form">
+			<label style ="color:blue" for "name">Name</label>
+			<input class="form-control" placeholder="Enter your name" name="name" type="text">
+		</div>
+		<div class="form-group signup-form">
+			<label style ="color:blue" for "uName">Username</label>
+			<input class="form-control" placeholder="Enter a username" name="uName"type="text">
+		</div>
+		<br><br>
+		<br><br>
+		<div class="form-group signup-form">
+			<label style ="color:blue" for "bgColor">Background Color</label>
+			<input class="form-control" placeholder="<A dropdown menu with colors>" name="bgColor"type="text">
+		</div>
+		<div class="form-group signup-form">
+			<label style ="color:blue" for "pImage">Profile Image</label>
+			<input class="form-control" placeholder="<A dropdown menu with images>" name="pImage"type="text">
+		</div>
+		<br><br>
+		<br><br>
+		<div class="form-group signup-form-large">
+			<label style ="color:blue" for "pass">Password</label>
+			<input class="form-control" placeholder="Enter a password" name="pass" type="text">
+		</div>
+		<div class="form-group signup-form-large">
+			<label style ="color:blue" for "cPass">Confirm Password</label>
+			<input class="form-control" placeholder="Confirm your password" name="cPass" type="text">
+		</div>
+		<div class="form-group signup-form-large">
+			<label style ="color:blue" for "email">Email Address</label>
+			<input class="form-control" placeholder="Enter your email address" name="email" type="text">
+		</div>
+			<div class = "form-group">
+				<button type="submit" class="btn btn-default signup_button">Save Changes</button>
+			</div>
+		</div>
+	</form>
+</div>

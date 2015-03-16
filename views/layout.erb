@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+
+
+  </head>
+  <body>
+  <nav class= "navbar navbar-default">
+      <div class = "container-fluid">
+        <div class = "navbar-header">
+          <a style = "color:#01C9F5" class = "navbar-brand" href = "/">nanoTwitter</a>
+        </div>
+        <div>
+          <ul class = "nav navbar-nav">
+            <li class ="active"><a href="#">About Us</a></li>
+          </ul>
+        </div>
+        <div class = "container">
+          <div class="row">
+            <div class ="col-md-6 col-md-offset-3">
+              <form class="nav navbar-nav">
+                <input type="text" class="form-control searchbar" placeholder="Search for friends, tweets...">
+              </form>
+              <button type="button" class="btn  btn-default searchbar" aria-label="Left Align">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              </button> 
+            </div>
+          </div>
+        </div>
+      </div>
+     </nav>
+      <!--<div class="bs-example">
+        <ul class="nav nav-tabs nav-stacked">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+        </ul>
+    </div>-->
+    <!--<div class = "container">-->
+      <%= yield %>
+    <!--</div>-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script type = "text/javascript" src="main.js"></script>
+  </body>
+</html>

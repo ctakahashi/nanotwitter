@@ -1,0 +1,153 @@
+.login {
+	background-color: #01C9F5;
+	width: 100%;
+	height: 400px;
+
+}
+.login h2 {
+	font-family: "Oswald";
+	font-weight: 300;
+	padding-left: 20px;
+	margin-top: 0;
+
+}
+.signup {
+	position: absolute;
+	margin-left: 0px;
+	font-family: "Oswald";
+	font-weight: 300;
+	padding-left: 20px;
+
+}
+a.signup-button {
+	text-decoration: underline;
+	color: white;
+}
+.forgotPass {
+	position: absolute;
+	margin-left: 0px;
+	font-family: "Oswald";
+	font-weight: 300;
+	padding-left: 20px;
+
+}
+a.forgotPass-button {
+	text-decoration: underline;
+	color: white;
+}
+.navbar {
+	margin-bottom: 0;
+}
+.btn{
+	border-radius: 0px;
+	color: #01C9F5;
+
+}
+.btn:link {
+	color: white;
+	background-color: #01C9F5;
+}
+.btn:visited {
+	color: white;
+	background-color: #01C9F5;
+}
+
+.btn:hover {
+	color: white;
+	background-color: #01C9F5;
+}
+.btn:active {
+	color: white;
+	background-color: #01C9F5;
+}
+.login_button {
+	margin-top: 5px;
+}
+.form-control {
+	border-radius: 0;
+}
+.searchbar {
+	margin-top: 10px;
+}
+.forgot-header {
+	font-family: "Oswald";
+	font-weight: 300;
+}
+.register {
+	background-color: #CEF6EC;
+	width: 100%;
+	height: 700px;
+	padding-left: 20px;
+}
+.signup_button {
+	margin-top: 20px;
+}
+.resetPass-button {
+	//margin: 30px;
+}
+.reset-form {
+	padding: 10px;
+	width:30%;
+}
+.signup-form {
+	width:15%;
+}
+.signup-form-large {
+	width:20%;
+}
+.profile-pic {
+	background-color: black;
+	height: 200px;
+	width: 200px;
+
+}
+.profile-info {
+	margin: 0;
+	float:left;
+	width:20%;
+}
+.profile-tabs {
+	//background-color:  #01C9F5;
+
+}
+.tabs {
+	margin-top: 10px;
+	width:50%;
+}
+.nav-pills>li.active>a {
+	background-color: #01C9F5;
+	color: white;
+}
+.nav-pills>li >a {
+	color: #01C9F5;
+}
+.settings {
+	background-color: #01C9F5;
+	width: 100%;
+	height: 950px;
+	padding-left: 20px;
+}
+.tweet-box {
+	resize: none;
+}
+.tweet {
+	width: 100%;
+	margin: 0 0 0 0 ;
+	height: 20px;
+}
+.counter {
+	float: right;
+	margin-top: 7px;
+	margin-right: 10px;
+}
+.tweet-button {
+	float: right;
+	display: inline;
+}
+.profile-tabs {
+	padding-top: 70px;
+}
+.error-text {
+	padding-left: 20px;
+	font-family: "Oswald";
+}
