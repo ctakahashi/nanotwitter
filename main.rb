@@ -10,13 +10,14 @@ require './models/bond'
 require './models/comment'
 require './models/retweet'
 
+enable :sessions
 
 get '/' do
-	# if session[:username]
-	# 	erb home_feed
-	# else
+	if session[:username]
+		erb home_feed
+	else
 		erb :index
-	# end
+	end
 end
 
 #post '/login' do
@@ -49,11 +50,11 @@ post '/register' do
 end
 
 post '/tweet' do
-	@temp_user = "ctaka"
+	username = User.find(session[:user_id]).username
 	@tweet = Tweet.create(text: params[:tweet_text],
-						  user_id: User.find_by_username(@temp_user).id)
+						  user_id: session[:user_id])
 	if @tweet.valid?
-		redirect "/user/#{@temp_user}"
+		redirect "/user/#{username}"
 	end
 end
 
@@ -62,7 +63,8 @@ get '/login' do
 
 	if @check
 		if @check.password == params[:password]
-			erb :home_feed
+			session[:user_id] = @check.id
+			redirect '/profile'
 		else
 			erb :login_error
 		end
@@ -85,9 +87,7 @@ get '/resetpassword' do
 end
 
 get '/profile' do 
-	temp_username = "ctaka"
-	# @user = session[:user_id]
-	user = User.find_by_username(temp_username)
+	user = User.find(session[:user_id])
 	if user
 		erb :profile, :locals => {:name => user.name, :username => user.username, :tweets => user.tweets}
 	else
@@ -100,10 +100,11 @@ get '/settings' do
 end
 
 get '/user/:username' do
-	# temp_username = "amfer"
 	user = User.find_by_username(params[:username])
-	# user = User.find_by_username(temp_username)
-	if user
+	
+	if user.id == session[:user_id]
+		redirect '/profile'
+	elsif user
 		erb :profile, :locals => {:name => user.name, :username => user.username, :tweets => user.tweets}
 	else
 		error 404, {:error => "The user is not found."}.to_json

@@ -76,3 +76,4 @@ get '/api/v1/users/:id/comments' do
 	else
 		error 404, {:error => "User does not exist"}.to_json
 	end
+end
