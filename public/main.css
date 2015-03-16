@@ -68,6 +68,7 @@ a.forgotPass-button {
 }
 .searchbar {
 	margin-top: 10px;
+	display: inline;
 }
 .forgot-header {
 	font-family: "Oswald";
@@ -150,4 +151,10 @@ a.forgotPass-button {
 .error-text {
 	padding-left: 20px;
 	font-family: "Oswald";
+}
+.logout-button {
+	//display: inline;
+	width: 0;
+	float: right;
+	height: 0;
 }

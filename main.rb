@@ -12,7 +12,11 @@ require './models/retweet'
 
 
 get '/' do
-	erb :index
+	# if session[:username]
+	# 	erb home_feed
+	# else
+		erb :index
+	# end
 end
 
 #post '/login' do
@@ -68,7 +72,8 @@ get '/login' do
 end
 
 get '/logout' do
-	erb :logged_out
+	# session[:user_id] = nil
+	# redirect '/'
 end
 
 get '/signup' do
@@ -80,7 +85,14 @@ get '/resetpassword' do
 end
 
 get '/profile' do 
-	erb :profile
+	temp_username = "ctaka"
+	# @user = session[:user_id]
+	@user = User.find_by_username(temp_username)
+	if @user
+		erb :profile, :locals => {:name => @user.name, :username => @user.username}
+	else
+		error 404, {:error => "The user is not found or you are not logged in."}.to_json
+	end
 end
 
 get '/settings' do 
@@ -88,7 +100,14 @@ get '/settings' do
 end
 
 get '/user/:username' do
-	erb :profile
+	temp_username = "ctaka"
+	# @user = User.find_by_username(:username)
+	user = User.find_by_username(temp_username)
+	if user
+		erb :profile, :locals => {:name => user.name, :username => @user.username}
+	else
+		error 404, {:error => "The user is not found."}.to_json
+	end
 end
 
 # get '/tweet/:id' do

@@ -20,6 +20,31 @@ get '/api/v1/users/:username' do
 	end
 end
 
+get '/api/v1/users/:id' do 
+	user = User.find_by_name(params[:id])
+	if user
+		user.to_json
+	else
+		error 404, {:error => "That username is not found in our database"}.to_json
+	end
+end
+
+get '/api/v1/users/:id/tweets' do
+	user = User.find(params[:id])
+
+	if user
+		all_tweets = user.tweets
+		if all_tweets
+			all_tweets.to_json
+		else
+			error 404, {:error => "User has no tweets"}.to_json
+		end
+	else
+		error 404, {:error => "User does not exist"}.to_json
+	end
+
+end
+
 get '/api/v1/tweets/:id' do
 	tweet = Tweet.find(params[:id])
 
@@ -37,3 +62,17 @@ get '/api/v1/tweets/recent/:num' do
 		tweets.push(Tweet.find(tweet))
 	end
 end
+
+get '/api/v1/users/:id/comments' do
+	user = User.find(params[:id])
+
+	if user
+		all_comments = user.comments
+		if comments
+			all_comments.to_json
+		else
+			error 404, {:error => "User never made any comments"}.to_json
+		end
+	else
+		error 404, {:error => "User does not exist"}.to_json
+	end
