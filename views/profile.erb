@@ -23,3 +23,13 @@
 	</div>
 </div>
 <br>
+
+<% tweets.reverse.each do |tweet| %>
+	<%= User.find(tweet.user_id).username %>
+	- - - <%= tweet.created_at %>
+	<br>
+	<%= tweet.text %>
+	<br>
+	------------------------------------
+	<br>
+<% end %>

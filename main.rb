@@ -87,9 +87,9 @@ end
 get '/profile' do 
 	temp_username = "ctaka"
 	# @user = session[:user_id]
-	@user = User.find_by_username(temp_username)
-	if @user
-		erb :profile, :locals => {:name => @user.name, :username => @user.username}
+	user = User.find_by_username(temp_username)
+	if user
+		erb :profile, :locals => {:name => user.name, :username => user.username, :tweets => user.tweets}
 	else
 		error 404, {:error => "The user is not found or you are not logged in."}.to_json
 	end
@@ -100,11 +100,11 @@ get '/settings' do
 end
 
 get '/user/:username' do
-	temp_username = "ctaka"
-	# @user = User.find_by_username(:username)
-	user = User.find_by_username(temp_username)
+	# temp_username = "amfer"
+	user = User.find_by_username(params[:username])
+	# user = User.find_by_username(temp_username)
 	if user
-		erb :profile, :locals => {:name => user.name, :username => @user.username}
+		erb :profile, :locals => {:name => user.name, :username => user.username, :tweets => user.tweets}
 	else
 		error 404, {:error => "The user is not found."}.to_json
 	end
