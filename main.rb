@@ -16,13 +16,14 @@ require 'sinatra/assetpack'
 enable :sessions
 enable :method_override
 class App < Sinatra::Base
-	register Sinatra::Application
+	register Sinatra::AssetPack
 	assets do
+		serve '/js', :from => 'public/js'
 		js :application, [
 			'/js/jquery.js',
 			'/js/app.js'
 		]
-
+		serve '/js', :from => 'public/css'
 		css :application, [
 			'/css/jqueryui.css',
 			'/css/reset.css',

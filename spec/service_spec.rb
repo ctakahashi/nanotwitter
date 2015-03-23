@@ -9,64 +9,32 @@ describe "service" do
     Sinatra::Application
   end
 
-  describe "GET on /api/v1/users/:id" do
-
-    it "should return a user by id" do
-      get '/api/v1/users/1' 
-      last_response.should be_ok
-      attributes = JSON.parse(last_response.body) 
-      attributes["id"].should == User.find(1).id
-    end
-
-    it "should return a user by name" do
-      get '/api/v1/users/1' 
-      last_response.should be_ok
-      attributes = JSON.parse(last_response.body) 
-      attributes["name"].should == User.find(1).name
-    end
-
-    it "should return a user by username" do
-      get '/api/v1/users/1' 
-      last_response.should be_ok
-      attributes = JSON.parse(last_response.body) 
-      attributes["username"].should == User.find(1).username
-    end
-
-    it "should return a user by password" do
-      get '/api/v1/users/1' 
-      last_response.should be_ok
-      attributes = JSON.parse(last_response.body) 
-      attributes["password"].should == User.find(1).password
-    end
-
-    it "should return a user by pic" do
-      get '/api/v1/users/1' 
-      last_response.should be_ok
-      attributes = JSON.parse(last_response.body) 
-      attributes["pic"].should == User.find(1).pic
-    end
-
+  it "should return a user by id" do
+    get '/api/v1/users/1' 
+    last_response.should be_ok
+    attributes = JSON.parse(last_response.body) 
+    attributes["name"].should == "Chungyuk Takahashi"
   end
 
   it "should return the tweets of a user" do
     get '/api/v1/users/1/tweets' 
     last_response.should be_ok
     attributes = JSON.parse(last_response.body) 
-    attributes.first["text"].should == Tweet.first.text
+    attributes.first["text"].should == "The first nano tweet"
   end 
 
   it "should return a tweet based on the id" do
     get '/api/v1/tweets/1' 
     last_response.should be_ok
     attributes = JSON.parse(last_response.body) 
-    attributes["text"].should == "drive transparent schemas"
+    attributes["text"].should == "The first nano tweet"
   end
 
   it "should return the most recent tweets" do
   	get '/api/v1/tweets/recent/5'
   	last_response.should be_ok
 	  attributes = JSON.parse(last_response.body)
-    attributes[0]["id"].should == Tweet.all.count
+    attributes[0]["id"].should == Tweet.all.count + 20072
   end
 
 	# it "should return the comments of a user" do
