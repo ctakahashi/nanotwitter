@@ -21,7 +21,7 @@ count = 0
 		end
 	end
 end
-
+#
 # while(count <= 100) do
 # 	name = Faker::Name.name
 # 	random_char = (33 + rand(93)).chr
