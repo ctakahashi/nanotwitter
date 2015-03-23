@@ -11,8 +11,6 @@ require './models/tweet'
 
 count = 0
 
-
-#
 (0..100).each do
 	name = Faker::Name.name
 	random_char = (33 + rand(93)).chr
