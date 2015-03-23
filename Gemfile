@@ -16,4 +16,4 @@ gem 'rake'
 gem 'faker'
 gem 'pg'
 
-gem 'sinatra-assetpack'
+gem 'sinatra-assetpack', :require => 'sinatra/assetpack'

@@ -10,11 +10,15 @@ require './models/tweet'
 require './models/bond'
 require './models/comment'
 require './models/retweet'
+require 'sinatra/base'
 require 'sinatra/assetpack'
 
 enable :sessions
 enable :method_override
-
+class App < Sinatra::Base
+	set :root, File.dirname
+	
+end
 get '/' do
 	if session[:user_id]
 		redirect '/home'
