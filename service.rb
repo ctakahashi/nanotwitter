@@ -69,4 +69,4 @@ end
 # 	else
 # 		error 404, {:error => "User does not exist"}.to_json
 # 	end
-end
+# end
