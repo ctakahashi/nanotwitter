@@ -1,11 +1,19 @@
 require_relative '../main.rb'
 
 describe "main" do
+
+	before(:all) do
+    	test_user = User.find_by_name("123456")
+    	if test_user
+    		test_user.destroy
+    	end
+ 	end
+
 	it "should get a user" do
 		user = User.find_by_username("ctaka")
-		user["name"].should == "Chungyuk Takahashi"
-		user["email"].should == "tachi6@brandeis.edu"
-		user["password"].should == "password"
+		user["name"].should == User.find_by_username("ctaka").name
+		user["email"].should == User.find_by_username("ctaka").email
+		user["password"].should == User.find_by_username("ctaka").password
 	end
 
 	it "should return nil for a user not found" do
