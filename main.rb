@@ -16,8 +16,23 @@ require 'sinatra/assetpack'
 enable :sessions
 enable :method_override
 class App < Sinatra::Base
-	set :root, File.dirname
-	
+	register Sinatra::Application
+	assets do
+		js :application, [
+			'/js/jquery.js',
+			'/js/app.js'
+		]
+
+		css :application, [
+			'/css/jqueryui.css',
+			'/css/reset.css',
+			'/css/foundation.css',
+			'/css.app.css']
+
+		js_compression :jsmin
+		css_compression :sass
+	end
+
 end
 get '/' do
 	if session[:user_id]
