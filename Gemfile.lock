@@ -61,7 +61,6 @@ GEM
       activerecord (>= 3.2)
       sinatra (~> 1.0)
     slop (3.6.0)
-    sqlite3 (1.3.10)
     thread_safe (0.3.5)
     tilt (1.4.1)
     typhoeus (0.7.1)
@@ -75,7 +74,6 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   faker
-  ffi (= 1.9.3)
   json
   pg
   pry
@@ -86,5 +84,4 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
-  sqlite3
   typhoeus

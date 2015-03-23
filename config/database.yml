@@ -1,8 +1,14 @@
 # Create mapping from server "environment" (development|test|production) to database
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgresql
+  database: development
+  host: localhost
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: test
+  host: localhost
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>

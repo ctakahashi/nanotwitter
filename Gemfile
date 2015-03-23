@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'sqlite3'
 gem 'rack'
 gem 'sinatra'
 gem 'activerecord'
@@ -13,6 +12,6 @@ gem 'pry'
 # gem 'pry-byebug'
 gem 'shotgun'
 gem 'rake'
-gem 'ffi', '1.9.3'
+
 gem 'faker'
 gem 'pg'
