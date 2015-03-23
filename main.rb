@@ -10,6 +10,7 @@ require './models/tweet'
 require './models/bond'
 require './models/comment'
 require './models/retweet'
+require 'sinatra/assetpack'
 
 enable :sessions
 enable :method_override
