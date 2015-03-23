@@ -1,12 +1,21 @@
 <div class = "container profile-info">
 	<div class="profile-pic">
-
+		<img src=<%= pic %> alt="User's profile picture" style="width:200px;height:200px" >
 	</div>
 	<h3> <%= name %> </h3>
 	<h4> <%= username %> </h4>
+	<% if(logged_in_user && !current_user) %>
+		<% if me.following?(user)%>
+			<a href = <%= "/user/#{username}/unfollow"%> , class = "btn following-button"><span>Following</span></a>
+		<% else %>
+			<a href = <%= "/user/#{username}/follow"%> class = " btn btn-default">Follow</a>
+		<% end %>
+	<% end %>
+
 </div>
 
 <div class="container tabs">
+	<% if(current_user) %>
 	<form role="form" action="/tweet" method="POST">
 		<div class = "container tweet">
 			<textarea class = "form-control tweet-text" name = "tweet_text" maxlength="140"></textarea>
@@ -14,22 +23,39 @@
 			<p class="counter">140</p>
 		</div>
 	</form>
+	<% end %>
 	<div class = "container profile-tabs">
 		<ul class = "nav nav-tabs profile-tabs">
-			<li role = "presentation" class = "active" data-toggle="tab"> <a href="#Tweets">Tweets</a></li>
-			<li role = "presentation"><a href="#Following" data-toggle="tab">Following</a></li>
-			<li role = "presentation"><a href="#Followers" data-toggle="tab">Followers</a></li>
+			<li class = "active"> <a data-toggle="tab" href="#Tweets">Tweets</a></li>
+			<li><a data-toggle="tab" href="#Following">Following(<%= user.following.length%>)</a></li>
+			<li><a data-toggle="tab" href="#Followers">Followers(<%= user.leading.length%>)</a></li>
 		</ul> 
+		<div class="tab-content">
+			<div id = "Tweets" class="tab-pane active" >
+				<% tweets.reverse.each do |tweet| %>
+					<div class = "tweet-list">
+						<h3><%= User.find(tweet.user_id).username %></h3>
+						<p>Posted on <%= tweet.created_at %></p>
+						<p><%=tweet.text %></p>
+					</div>
+				<% end %>
+			</div>
+			<div id="Following" class = "tab-pane">	
+				<% user.following.each do |followings| %>
+					<div>
+						<a href=<%= "/user/#{followings.username}" %>><%=followings.username%></a>
+					</div>
+				<% end %>
+			</div>
+			<div id = "Followers" class = "tab-pane"> 
+				<% user.leading.each do |leadings| %>
+					<div>
+						<a href=<%= "/user/#{leadings.username}" %>><%=leadings.username%></a>
+					</div>
+				<% end %>
+			</div>
+		</div>
 	</div>
 </div>
-<br>
 
-<% tweets.reverse.each do |tweet| %>
-	<%= User.find(tweet.user_id).username %>
-	- - - <%= tweet.created_at %>
-	<br>
-	<%= tweet.text %>
-	<br>
-	------------------------------------
-	<br>
-<% end %>
+<br>

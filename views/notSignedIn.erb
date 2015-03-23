@@ -16,25 +16,21 @@
         </div>
         <div>
           <ul class = "nav navbar-nav">
-            <li><a href="#">About Us</a></li>
-            <li><a href = "/settings">Settings</a></li> 
+            <li class ="active"><a href="#">About Us</a></li>
           </ul>
           <div class = "container logout-button">
             <div class = "row">
-              <div class = "col-md-6">
-                <button onclick="window.location.href='/logout'" type="button" class="btn btn-default searchbar tweet-button">Logout</button>
-              </div>
             </div>
           </div>
         </div>
         <div class = "container">
           <div class="row">
-            <div class ="col-md-4 col-md-offset-3" >
+            <div class ="col-md-6 col-md-offset-3">
               <form class="nav navbar-nav" action="/search" method="POST">
                 <input type="text" class="form-control searchbar" name="search" placeholder="Search for friends, tweets...">
               </form>
-                <button type="submit" class="btn  btn-default search-button" aria-label="Left Align" >
-                  <i class="glyphicon glyphicon-search" aria-hidden="true" ></i>
+                              <button type="submit" class="btn  btn-default search-button" aria-label="Left Align" >
+                   <i class="glyphicon glyphicon-search" aria-hidden="true" ></i>
                 </button>
             </div>
           </div>

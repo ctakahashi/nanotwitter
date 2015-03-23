@@ -5,6 +5,6 @@ class CreateRetweet < ActiveRecord::Migration
 			t.integer :tweet_id
 			
 			t.timestamps null: false
-		end
-	end
+		end		
+	end							
 end

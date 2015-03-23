@@ -1,0 +1,7 @@
+<% if @users %>
+  <% @users.reverse.each do |user| %>
+    <div>
+        <a href=<%= "/user/#{user.username}" %>><%=user.username%></a>
+    </div>
+  <% end %>
+<% end %>

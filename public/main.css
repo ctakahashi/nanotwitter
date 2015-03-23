@@ -70,6 +70,10 @@ a.forgotPass-button {
 	margin-top: 10px;
 	display: inline;
 }
+.search-button {
+	float: left;
+	margin-top: 10px;
+}
 .forgot-header {
 	font-family: "Oswald";
 	font-weight: 300;
@@ -146,7 +150,9 @@ a.forgotPass-button {
 	display: inline;
 }
 .profile-tabs {
+	width: 500px;
 	padding-top: 70px;
+	height:115px;
 }
 .error-text {
 	padding-left: 20px;
@@ -157,4 +163,30 @@ a.forgotPass-button {
 	width: 0;
 	float: right;
 	height: 0;
+}
+.tweet-list {
+	background-color: #01C9F5;
+	margin-bottom: 10px; 
+	border-radius: 10px;
+	border-color: white;
+	word-wrap: break-word;
+}
+.tweet-list p {
+	color: white;
+	padding-left: 5px;
+	padding-right:5px;
+}
+
+.tweet-list h3 {
+	color:white;
+}
+.following-button {
+	background-color: #01C9F5;
+	color: white;
+}
+.following-button:hover span{
+	display: none;
+}
+.following-button:hover:after {
+	content:'Unfollow?';
 }

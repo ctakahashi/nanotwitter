@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
 	validates_uniqueness_of :name, :email, :username
+	validates :username, format: { without: /\s/ }
 	def to_json
 		super(:except => :password)
 	end
+
+	# set :method_override, true
 
 	has_many :tweets
 	has_many :comments
@@ -20,11 +23,15 @@ class User < ActiveRecord::Base
 
 	def unfollow(other_user)
 		follower_bonds.find_by(leader_id: other_user.id).destroy
-		other_user.leader_bonds.find_by(follower_id: :id).destroy
+		# other_user.leader_bonds.find_by(follower_id: :id).destroy
 	end
 
 	def following?(other_user)
 		following.include?(other_user)
+	end
+	def self.search(search)
+		# search=User.where(name: "ctaka").id
+	  where("username LIKE ?", "%#{search}%")
 	end
 
 end

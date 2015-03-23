@@ -1,5 +1,7 @@
 require './main.rb'
 require 'sinatra/activerecord/rake'
+
+enable :method_override
 # require 'active_record'
 # require 'yaml'
 

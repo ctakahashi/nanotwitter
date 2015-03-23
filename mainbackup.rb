@@ -16,7 +16,7 @@ enable :method_override
 
 get '/' do
 	if session[:user_id]
-		redirect '/home'
+		redirect '/profile'
 	else
 		erb :index, :layout => :notSignedIn
 	end
@@ -47,8 +47,6 @@ post '/register' do
 
 	if @user.valid?
 		redirect "/user/#{@user.username}"
-	else
-		erb :signup
 	end
 end
 
@@ -63,8 +61,8 @@ end
 
 post '/search' do 
 		puts params[:search]   
-    @users = User.search(params[:search]).order("created_at DESC")
-    puts @users
+    @tweets = Tweet.search(params[:search]).order("created_at DESC")
+    puts @tweets
     erb :searchPage
 end
 
@@ -89,11 +87,11 @@ get '/logout' do
 end
 
 get '/signup' do
-	erb :signup, :layout => :notSignedIn
+	erb :signup
 end
 
 get '/resetpassword' do 
-	erb :resetPass, :layout => :notSignedIn
+	erb :resetPass
 end
 
 get '/profile' do 
@@ -116,42 +114,15 @@ get '/profile' do
 	end
 end
 
-get '/home' do 
-	if session[:user_id]
-		user = User.find(session[:user_id])
-		if user
-			following_tweets = Array.new
-			user.following.each do |followed_user|
-				followed_user.tweets.each do |tweet|
-					following_tweets.push(tweet)
-				end
-			end
-			following_tweets.sort_by!{|tweet| tweet.created_at}
-			erb :profile, :locals => {:name => user.name,
-									  :username => user.username, 
-									  :tweets => following_tweets, 
-									  :user => user,
-									  :current_user => true,
-									  :logged_in_user => true,
-									  :pic => user.pic || Faker::Avatar.image
-									}
-		else
-			error 404, {:error => "The user is not found or you are not logged in."}.to_json
-		end
-	else
-		error 404, {:error => "You are not logged in."}.to_json
-	end
-end
-
 get '/settings' do 
 	erb :settings
 end
 
-put '/edit' do
-	@user = User.find(session[:user_id])
-	if @user
-		params.delete_if { |key, value| value == "" || value == "PUT" }
-		@user.update_attributes(params)
+post '/edit' do
+	user = User.find(session[:user_id])
+	if user
+		params.delete_if { |key, value| value.nil? }
+		user.update_attributes(params :name)
 		redirect '/profile'
 	else
 		error 404, {:error => "You're not logged in. Please go back and log in."}
@@ -186,7 +157,7 @@ get '/user/:username' do
 		end
 	else 
 		if user
-			erb :profile, :layout => :notSignedIn, :locals => {:name => user.name,
+			erb :profile, :locals => {:name => user.name,
 									  :username => user.username, 
 									  :tweets => user.tweets,
 									  :pic => user.pic || Faker::Avatar.image,
