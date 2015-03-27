@@ -3,12 +3,14 @@
 development:
   adapter: postgresql
   database: development
+  encoding: utf8
   host: localhost
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>
 test:
   adapter: postgresql
   database: test
+  encoding: utf8
   host: localhost
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASS'] %>

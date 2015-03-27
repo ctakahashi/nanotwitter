@@ -73,22 +73,6 @@ post '/register' do
 	end
 end
 
-post '/tweet' do
-	username = User.find(session[:user_id]).username
-	@tweet = Tweet.create(text: params[:tweet_text],
-						  user_id: session[:user_id])
-	if @tweet.valid?
-		redirect "/user/#{username}"
-	end
-end
-
-post '/search' do 
-		puts params[:search]   
-    @users = User.search(params[:search]).order("created_at DESC")
-    puts @users
-    erb :searchPage
-end
-
 get '/login' do
 	@check = User.find_by_username(params[:username])
 
@@ -116,6 +100,30 @@ end
 get '/resetpassword' do 
 	erb :resetPass, :layout => :notSignedIn
 end
+##########split here?
+
+post '/tweet' do
+	username = User.find(session[:user_id]).username
+	@tweet = Tweet.create(text: params[:tweet_text],
+						  user_id: session[:user_id])
+	if @tweet.valid?
+		redirect "/user/#{username}"
+	end
+end
+
+post '/search' do 
+		puts params[:search]   
+    @users = User.search(params[:search]).order("created_at DESC")
+    puts @users
+    erb :searchPage
+end
+
+get '/tweet/:id' do
+	erb :tweet
+end
+
+##########split here?
+
 
 get '/profile' do 
 	if session[:user_id]
@@ -222,6 +230,8 @@ get '/user/:username' do
 	end
 end
 
+##########split here?
+
 get '/user/:username/follow' do
 	if session[:user_id]
 		follower = User.find(session[:user_id])
@@ -240,7 +250,4 @@ get '/user/:username/unfollow' do
 		follower.unfollow(leader)	
 		redirect "/user/#{username}"
 	end
-end
-get '/tweet/:id' do
-	erb :tweet
 end

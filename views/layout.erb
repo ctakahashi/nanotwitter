@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>nanoTwitter</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
     <%= css :application %>
 
@@ -17,7 +19,7 @@
         <div>
           <ul class = "nav navbar-nav">
             <li><a href="#">About Us</a></li>
-            <li><a href = "/settings">Settings</a></li> 
+            <li><a href = "/settings">Settings</a></li>
           </ul>
           <div class = "container logout-button">
             <div class = "row">
@@ -52,7 +54,7 @@
     <!--<div class = "container">-->
       <%= yield %>
     <!--</div>-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
     <script src="/js/bootstrap.min.js"></script>
     <script type = "text/javascript" src="main.js"></script>
