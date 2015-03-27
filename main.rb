@@ -15,6 +15,7 @@ require 'sinatra/assetpack'
 
 enable :sessions
 enable :method_override
+
 class App < Sinatra::Base
 	register Sinatra::AssetPack
 	assets do
