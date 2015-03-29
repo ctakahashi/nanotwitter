@@ -5,6 +5,7 @@ class CreateUser < ActiveRecord::Migration
 			t.string 		:username
 			t.string 		:password
 			t.string 		:email
+			t.string		:pic
 
 			t.timestamps null: false
 		end

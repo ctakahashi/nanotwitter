@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	validates_uniqueness_of :name, :email, :username
+	validates_uniqueness_of :email, :username
 	validates :username, format: { without: /\s/ }
 	def to_json
 		super(:except => :password)

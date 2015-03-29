@@ -66,16 +66,22 @@ end
 =end
 CSV.foreach("./seeds/users.csv") do |rows|
 		user = User.create(name: rows[1],
-				username: rows[1] (rows[1], %W(. _ - #{random_char})),
+				username: rows[1],
 				password: Faker::Internet.password(6, 20),
-				email: Faker::Internet.free_email,
+				email: "#{rows[1]}@gmail.com",
 				pic: Faker::Avatar.image
 				)
 end
-
+count = 1
 CSV.foreach("./seeds/tweets.csv") do |rows|
 	Tweet.create(text: rows[1],
-		user_id: rows[0])
+		user_id: rows[0],
+		created_at: rows[2],
+		updated_at: rows[2]
+		)
+	# Tweet.find(count).update_attributes(:created_at => rows[2], 
+	# 									:updated_at => rows[2])
+	count += 1
 end	
 
 CSV.foreach("./seeds/follows.csv") do |rows|

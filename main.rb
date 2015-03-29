@@ -1,5 +1,6 @@
 require 'json'
 require 'sinatra'
+require 'newrelic_rpm'
 require 'active_record'
 require "sinatra/activerecord"
 require 'pry'
@@ -12,9 +13,14 @@ require './models/comment'
 require './models/retweet'
 require 'sinatra/base'
 require 'sinatra/assetpack'
+require './tweet_service.rb'
+require './user_service.rb'
+require './follow_service.rb'
 
 enable :sessions
 enable :method_override
+
+set :environment, :development
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
@@ -68,7 +74,7 @@ post '/register' do
 						)
 
 	if @user.valid?
-		redirect "/user/#{@user.username}"
+		erb :index, :layout => :notSignedIn
 	else
 		erb :signup
 	end
@@ -103,152 +109,152 @@ get '/resetpassword' do
 end
 ##########split here?
 
-post '/tweet' do
-	username = User.find(session[:user_id]).username
-	@tweet = Tweet.create(text: params[:tweet_text],
-						  user_id: session[:user_id])
-	if @tweet.valid?
-		redirect "/user/#{username}"
-	end
-end
+# post '/tweet' do
+# 	username = User.find(session[:user_id]).username
+# 	@tweet = Tweet.create(text: params[:tweet_text],
+# 						  user_id: session[:user_id])
+# 	if @tweet.valid?
+# 		redirect "/user/#{username}"
+# 	end
+# end
 
-post '/search' do 
-		puts params[:search]   
-    @users = User.search(params[:search]).order("created_at DESC")
-    puts @users
-    erb :searchPage
-end
+# post '/search' do 
+# 		puts params[:search]   
+#     @users = User.search(params[:search]).order("created_at DESC")
+#     puts @users
+#     erb :searchPage
+# end
 
-get '/tweet/:id' do
-	erb :tweet
-end
-
-##########split here?
-
-
-get '/profile' do 
-	if session[:user_id]
-		user = User.find(session[:user_id])
-		if user
-			erb :profile, :locals => {:name => user.name,
-									  :username => user.username, 
-									  :tweets => user.tweets, 
-									  :user => user,
-									  :current_user => true,
-									  :logged_in_user => true,
-									  :pic => user.pic || Faker::Avatar.image
-									}
-		else
-			error 404, {:error => "The user is not found or you are not logged in."}.to_json
-		end
-	else
-		error 404, {:error => "You are not logged in."}.to_json
-	end
-end
-
-get '/home' do 
-	if session[:user_id]
-		user = User.find(session[:user_id])
-		if user
-			following_tweets = Array.new
-			user.following.each do |followed_user|
-				followed_user.tweets.each do |tweet|
-					following_tweets.push(tweet)
-				end
-			end
-			following_tweets.sort_by!{|tweet| tweet.created_at}
-			erb :profile, :locals => {:name => user.name,
-									  :username => user.username, 
-									  :tweets => following_tweets, 
-									  :user => user,
-									  :current_user => true,
-									  :logged_in_user => true,
-									  :pic => user.pic || Faker::Avatar.image
-									}
-		else
-			error 404, {:error => "The user is not found or you are not logged in."}.to_json
-		end
-	else
-		error 404, {:error => "You are not logged in."}.to_json
-	end
-end
-
-get '/settings' do 
-	erb :settings
-end
-
-put '/edit' do
-	@user = User.find(session[:user_id])
-	if @user
-		params.delete_if { |key, value| value == "" || value == "PUT" }
-		@user.update_attributes(params)
-		redirect '/profile'
-	else
-		error 404, {:error => "You're not logged in. Please go back and log in."}
-	end
-
-end
-
-
-get '/user/:username' do
-
-	user = User.find_by_username(params[:username])
-
-	if session[:user_id]
-		if user
-			if user.id == session[:user_id]
-				redirect '/profile'
-			else
-				current = User.find(session[:user_id])
-				erb :profile, :locals => {:name => user.name,
-										  :username => user.username, 
-										  :tweets => user.tweets,
-										  :pic => user.pic || Faker::Avatar.image,
-										  :user_id => user.id,
-										  :user => user,
-										  :me => current,
-										  :current_user => false,
-										  :logged_in_user => true										  
-										}
-			end
-		else
-			error 404, {:error => "The user is not found."}.to_json
-		end
-	else 
-		if user
-			erb :profile, :layout => :notSignedIn, :locals => {:name => user.name,
-									  :username => user.username, 
-									  :tweets => user.tweets,
-									  :pic => user.pic || Faker::Avatar.image,
-									  :user_id => user.id,
-									  :user => user,
-									  :current_user => false,
-									  :logged_in_user => false
-									}
-		else
-			error 404, {:error => "The user is not found and you are not logged in."}.to_json
-		end 
-	end
-end
+# get '/tweet/:id' do
+# 	erb :tweet
+# end
 
 ##########split here?
 
-get '/user/:username/follow' do
-	if session[:user_id]
-		follower = User.find(session[:user_id])
-		leader= User.find_by_username(params[:username])
-		username=leader.username	
-		follower.follow(leader)	
-		redirect "/user/#{username}"
-	end
-end
 
-get '/user/:username/unfollow' do
-	if session[:user_id]
-		follower = User.find(session[:user_id])
-		leader= User.find_by_username(params[:username])
-		username=leader.username	
-		follower.unfollow(leader)	
-		redirect "/user/#{username}"
-	end
-end
+# get '/profile' do 
+# 	if session[:user_id]
+# 		user = User.find(session[:user_id])
+# 		if user
+# 			erb :profile, :locals => {:name => user.name,
+# 									  :username => user.username, 
+# 									  :tweets => user.tweets, 
+# 									  :user => user,
+# 									  :current_user => true,
+# 									  :logged_in_user => true,
+# 									  :pic => user.pic || Faker::Avatar.image
+# 									}
+# 		else
+# 			error 404, {:error => "The user is not found or you are not logged in."}.to_json
+# 		end
+# 	else
+# 		error 404, {:error => "You are not logged in."}.to_json
+# 	end
+# end
+
+# get '/home' do 
+# 	if session[:user_id]
+# 		user = User.find(session[:user_id])
+# 		if user
+# 			following_tweets = Array.new
+# 			user.following.each do |followed_user|
+# 				followed_user.tweets.each do |tweet|
+# 					following_tweets.push(tweet)
+# 				end
+# 			end
+# 			following_tweets.sort_by!{|tweet| tweet.created_at}
+# 			erb :profile, :locals => {:name => user.name,
+# 									  :username => user.username, 
+# 									  :tweets => following_tweets, 
+# 									  :user => user,
+# 									  :current_user => true,
+# 									  :logged_in_user => true,
+# 									  :pic => user.pic || Faker::Avatar.image
+# 									}
+# 		else
+# 			error 404, {:error => "The user is not found or you are not logged in."}.to_json
+# 		end
+# 	else
+# 		error 404, {:error => "You are not logged in."}.to_json
+# 	end
+# end
+
+# get '/settings' do 
+# 	erb :settings
+# end
+
+# put '/edit' do
+# 	@user = User.find(session[:user_id])
+# 	if @user
+# 		params.delete_if { |key, value| value == "" || value == "PUT" }
+# 		@user.update_attributes(params)
+# 		redirect '/profile'
+# 	else
+# 		error 404, {:error => "You're not logged in. Please go back and log in."}
+# 	end
+
+# end
+
+
+# get '/user/:username' do
+
+# 	user = User.find_by_username(params[:username])
+
+# 	if session[:user_id]
+# 		if user
+# 			if user.id == session[:user_id]
+# 				redirect '/profile'
+# 			else
+# 				current = User.find(session[:user_id])
+# 				erb :profile, :locals => {:name => user.name,
+# 										  :username => user.username, 
+# 										  :tweets => user.tweets,
+# 										  :pic => user.pic || Faker::Avatar.image,
+# 										  :user_id => user.id,
+# 										  :user => user,
+# 										  :me => current,
+# 										  :current_user => false,
+# 										  :logged_in_user => true										  
+# 										}
+# 			end
+# 		else
+# 			error 404, {:error => "The user is not found."}.to_json
+# 		end
+# 	else 
+# 		if user
+# 			erb :profile, :layout => :notSignedIn, :locals => {:name => user.name,
+# 									  :username => user.username, 
+# 									  :tweets => user.tweets,
+# 									  :pic => user.pic || Faker::Avatar.image,
+# 									  :user_id => user.id,
+# 									  :user => user,
+# 									  :current_user => false,
+# 									  :logged_in_user => false
+# 									}
+# 		else
+# 			error 404, {:error => "The user is not found and you are not logged in."}.to_json
+# 		end 
+# 	end
+# end
+
+##########split here?
+
+# get '/user/:username/follow' do
+# 	if session[:user_id]
+# 		follower = User.find(session[:user_id])
+# 		leader= User.find_by_username(params[:username])
+# 		username=leader.username	
+# 		follower.follow(leader)	
+# 		redirect "/user/#{username}"
+# 	end
+# end
+
+# get '/user/:username/unfollow' do
+# 	if session[:user_id]
+# 		follower = User.find(session[:user_id])
+# 		leader= User.find_by_username(params[:username])
+# 		username=leader.username	
+# 		follower.unfollow(leader)	
+# 		redirect "/user/#{username}"
+# 	end
+# end
