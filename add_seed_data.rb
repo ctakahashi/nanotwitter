@@ -8,8 +8,8 @@ require 'faker'
 require './config/environments'
 require './models/user'
 require './models/tweet'
-
-count = 0
+require 'csv'
+=begin count = 0
 
 (0..100).each do
 	name = Faker::Name.name
@@ -62,4 +62,24 @@ User.all.each do |user|
 			end
 		end
 	end
+end
+=end
+CSV.foreach("./seeds/users.csv") do |rows|
+		user = User.create(name: rows[1],
+				username: rows[1] (rows[1], %W(. _ - #{random_char})),
+				password: Faker::Internet.password(6, 20),
+				email: Faker::Internet.free_email,
+				pic: Faker::Avatar.image
+				)
+end
+
+CSV.foreach("./seeds/tweets.csv") do |rows|
+	Tweet.create(text: rows[1],
+		user_id: rows[0])
+end	
+
+CSV.foreach("./seeds/follows.csv") do |rows|
+	current_user = User.find(rows[0])
+	other_user = User.find(rows[1])
+	current_user.follow(other_user)
 end
