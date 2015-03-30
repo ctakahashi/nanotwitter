@@ -94,10 +94,10 @@ get '/login' do
 			session[:user_id] = @check.id
 			redirect '/profile'
 		else
-			erb :login_error
+			erb :login_error, :layout => :notSignedIn
 		end
 	else
-		erb :login_error
+		erb :login_error, :layout => :notSignedIn
 	end
 end
 
@@ -116,6 +116,10 @@ end
 
 get '/about_us' do
 	erb :aboutus
+end
+
+get '/loaderio-6506d5de4416788ad7352f30b15c85b5/' do
+	erb :loader, :layout => nil
 end
 
 ##########split here?
