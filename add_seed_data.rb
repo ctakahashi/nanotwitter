@@ -72,17 +72,35 @@ CSV.foreach("./seeds/users.csv") do |rows|
 				pic: Faker::Avatar.image
 				)
 end
-count = 1
+# count = 1
+# CSV.foreach("./seeds/tweets.csv") do |rows|
+# 	Tweet.create(text: rows[1],
+# 		user_id: rows[0],
+# 		created_at: rows[2],
+# 		updated_at: rows[2]
+# 		)
+# 	# Tweet.find(count).update_attributes(:created_at => rows[2], 
+# 	# 									:updated_at => rows[2])
+# 	count += 1
+# 	break if count > 100
+# end	
+tweets = []
 CSV.foreach("./seeds/tweets.csv") do |rows|
-	Tweet.create(text: rows[1],
-		user_id: rows[0],
-		created_at: rows[2],
-		updated_at: rows[2]
-		)
-	# Tweet.find(count).update_attributes(:created_at => rows[2], 
-	# 									:updated_at => rows[2])
-	count += 1
-end	
+	tweets.push(%W{ #{rows[0]}, #{rows[1]}, #{rows[2]} })
+end
+
+tweets.sort_by!{|tweet| tweet[2]}
+
+tweets.each do |tweet|
+	# break if tweet[0].to_i == 890
+
+	Tweet.create(user_id: tweet[0],
+		text: tweet[1],
+		created_at: tweet[2],
+		updated_at: tweet[2]
+	)
+
+end
 
 CSV.foreach("./seeds/follows.csv") do |rows|
 	current_user = User.find(rows[0])
