@@ -47,11 +47,8 @@ get '/' do
 	if session[:user_id]
 		redirect '/home'
 	else
-		
 		# @one_k_tweets = Tweet.all
-		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
-		size = Tweet.all.count
-		@recent_tweets = Tweet.all[size - 101..size - 1].reverse
+		@recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
 		erb :index, :layout => :notSignedIn
 	end
 end
@@ -113,11 +110,6 @@ end
 get '/resetpassword' do 
 	erb :resetPass, :layout => :notSignedIn
 end
-
-get '/about_us' do
-	erb :aboutus
-end
-
 ##########split here?
 
 # post '/tweet' do
