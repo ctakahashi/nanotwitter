@@ -10,10 +10,10 @@ describe "main" do
  	end
 
 	it "should get a user" do
-		user = User.find_by_username("ctaka")
-		user["name"].should == User.find_by_username("ctaka").name
-		user["email"].should == User.find_by_username("ctaka").email
-		user["password"].should == User.find_by_username("ctaka").password
+		user = User.find_by_username("Bonnie")
+		user["name"].should == User.find_by_username("Bonnie").name
+		user["email"].should == User.find_by_username("Bonnie").email
+		user["password"].should == User.find_by_username("Bonnie").password
 	end
 
 	it "should return nil for a user not found" do
