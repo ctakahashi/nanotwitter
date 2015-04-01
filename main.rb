@@ -59,7 +59,7 @@ end
 	#<check>
 	#if <check> == true
 	#	erb <home feed>
-	#else 
+	#else
 	#	erb<login with failed text>
 	#end
 	#redirect '/home'
@@ -109,7 +109,7 @@ get '/signup' do
 	erb :signup, :layout => :notSignedIn
 end
 
-get '/resetpassword' do 
+get '/resetpassword' do
 	erb :resetPass, :layout => :notSignedIn
 end
 
@@ -121,6 +121,10 @@ get '/loaderio-6506d5de4416788ad7352f30b15c85b5/' do
 	erb :loader, :layout => nil
 end
 
+
+get '/loaderio-d273dacb1e46de4b1a381b41807320f2/' do
+	"loaderio-d273dacb1e46de4b1a381b41807320f2"
+end
 ##########split here?
 
 # post '/tweet' do
@@ -132,8 +136,8 @@ end
 # 	end
 # end
 
-# post '/search' do 
-# 		puts params[:search]   
+# post '/search' do
+# 		puts params[:search]
 #     @users = User.search(params[:search]).order("created_at DESC")
 #     puts @users
 #     erb :searchPage
@@ -146,13 +150,13 @@ end
 ##########split here?
 
 
-# get '/profile' do 
+# get '/profile' do
 # 	if session[:user_id]
 # 		user = User.find(session[:user_id])
 # 		if user
 # 			erb :profile, :locals => {:name => user.name,
-# 									  :username => user.username, 
-# 									  :tweets => user.tweets, 
+# 									  :username => user.username,
+# 									  :tweets => user.tweets,
 # 									  :user => user,
 # 									  :current_user => true,
 # 									  :logged_in_user => true,
@@ -166,7 +170,7 @@ end
 # 	end
 # end
 
-# get '/home' do 
+# get '/home' do
 # 	if session[:user_id]
 # 		user = User.find(session[:user_id])
 # 		if user
@@ -178,8 +182,8 @@ end
 # 			end
 # 			following_tweets.sort_by!{|tweet| tweet.created_at}
 # 			erb :profile, :locals => {:name => user.name,
-# 									  :username => user.username, 
-# 									  :tweets => following_tweets, 
+# 									  :username => user.username,
+# 									  :tweets => following_tweets,
 # 									  :user => user,
 # 									  :current_user => true,
 # 									  :logged_in_user => true,
@@ -193,7 +197,7 @@ end
 # 	end
 # end
 
-# get '/settings' do 
+# get '/settings' do
 # 	erb :settings
 # end
 
@@ -221,23 +225,23 @@ end
 # 			else
 # 				current = User.find(session[:user_id])
 # 				erb :profile, :locals => {:name => user.name,
-# 										  :username => user.username, 
+# 										  :username => user.username,
 # 										  :tweets => user.tweets,
 # 										  :pic => user.pic || Faker::Avatar.image,
 # 										  :user_id => user.id,
 # 										  :user => user,
 # 										  :me => current,
 # 										  :current_user => false,
-# 										  :logged_in_user => true										  
+# 										  :logged_in_user => true
 # 										}
 # 			end
 # 		else
 # 			error 404, {:error => "The user is not found."}.to_json
 # 		end
-# 	else 
+# 	else
 # 		if user
 # 			erb :profile, :layout => :notSignedIn, :locals => {:name => user.name,
-# 									  :username => user.username, 
+# 									  :username => user.username,
 # 									  :tweets => user.tweets,
 # 									  :pic => user.pic || Faker::Avatar.image,
 # 									  :user_id => user.id,
@@ -247,7 +251,7 @@ end
 # 									}
 # 		else
 # 			error 404, {:error => "The user is not found and you are not logged in."}.to_json
-# 		end 
+# 		end
 # 	end
 # end
 
@@ -257,8 +261,8 @@ end
 # 	if session[:user_id]
 # 		follower = User.find(session[:user_id])
 # 		leader= User.find_by_username(params[:username])
-# 		username=leader.username	
-# 		follower.follow(leader)	
+# 		username=leader.username
+# 		follower.follow(leader)
 # 		redirect "/user/#{username}"
 # 	end
 # end
@@ -267,8 +271,8 @@ end
 # 	if session[:user_id]
 # 		follower = User.find(session[:user_id])
 # 		leader= User.find_by_username(params[:username])
-# 		username=leader.username	
-# 		follower.unfollow(leader)	
+# 		username=leader.username
+# 		follower.unfollow(leader)
 # 		redirect "/user/#{username}"
 # 	end
 # end

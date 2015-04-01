@@ -2,11 +2,21 @@ require 'rspec'
 require 'rack/test'
 require_relative '../api_service.rb'
 
+set :environment, :test
+
 describe "service" do
 	include Rack::Test::Methods
 
   def app 
     Sinatra::Application
+  end
+
+  before(:all) do 
+    User.create(name: "Pito",
+                username: "psalas",
+                password: "password",
+                email: "ps@brandeis.edu"
+    )
   end
 
   it "should return a user by id" do
