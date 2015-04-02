@@ -23,6 +23,9 @@ enable :method_override
 
 set :environment, :development
 
+size = Tweet.all.count
+@@recent_tweets = Tweet.all[size - 101..size - 1].reverse
+
 class App < Sinatra::Base
 	register Sinatra::AssetPack
 	assets do
@@ -49,8 +52,7 @@ get '/' do
 	else
 		# @one_k_tweets = Tweet.all
 		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
-		size = Tweet.all.count
-		@recent_tweets = Tweet.all[size - 101..size - 1].reverse
+
 		erb :index, :layout => :notSignedIn
 	end
 end

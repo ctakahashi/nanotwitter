@@ -16,7 +16,7 @@
 	</form>
 	<h3 class= "forgotPass" style="color: white"> Forgot your password? <a class = "forgotPass-button" href ="/resetpassword">Click Here</a></h3> 
 </div>
-<% @recent_tweets.each do |tweet| %>
+<% @@recent_tweets.each do |tweet| %>
 	<div class = "tweet-list">
 		<img src=<%= User.find(tweet.user_id).pic %> alt="User's profile picture" style="width:40px;height:40px" >
 		<h3><%= User.find(tweet.user_id).username %></h3>
