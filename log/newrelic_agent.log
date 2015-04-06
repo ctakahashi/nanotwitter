@@ -1198,3 +1198,107 @@
 [04/06/15 01:49:57 -0400 ubuntu (8185)] INFO : Finished instrumentation
 [04/06/15 01:49:57 -0400 ubuntu (8185)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
 [04/06/15 01:49:59 -0400 ubuntu (8185)] INFO : Starting Agent shutdown
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : Environment: development
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : No known dispatcher detected.
+[04/06/15 02:44:19 -0400 ubuntu (9017)] INFO : Application: My Application (Development)
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Installing deferred Rack instrumentation
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Installing Sinatra instrumentation
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Installing Net instrumentation
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Finished instrumentation
+[04/06/15 02:44:20 -0400 ubuntu (9017)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 02:45:15 -0400 ubuntu (9017)] INFO : Doing deferred dependency-detection before Rack startup
+[04/06/15 02:45:15 -0400 ubuntu (9017)] INFO : Installing ActiveRecord 4 instrumentation
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Environment: development
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : No known dispatcher detected.
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Application: My Application (Development)
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Installing deferred Rack instrumentation
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Installing Sinatra instrumentation
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Installing Net instrumentation
+[04/06/15 02:56:45 -0400 ubuntu (9293)] INFO : Finished instrumentation
+[04/06/15 02:56:46 -0400 ubuntu (9293)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Environment: development
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : No known dispatcher detected.
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Application: My Application (Development)
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Installing deferred Rack instrumentation
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Installing Sinatra instrumentation
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Installing Net instrumentation
+[04/06/15 13:59:56 -0400 ubuntu (10656)] INFO : Finished instrumentation
+[04/06/15 13:59:57 -0400 ubuntu (10656)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:00:08 -0400 ubuntu (10656)] INFO : Starting Agent shutdown
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : Environment: development
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : No known dispatcher detected.
+[04/06/15 14:01:29 -0400 ubuntu (10715)] INFO : Application: My Application (Development)
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Installing Net instrumentation
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Finished instrumentation
+[04/06/15 14:01:30 -0400 ubuntu (10715)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:01:42 -0400 ubuntu (10715)] INFO : Starting Agent shutdown
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Environment: development
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : No known dispatcher detected.
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Application: My Application (Development)
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Installing Net instrumentation
+[04/06/15 14:02:32 -0400 ubuntu (10781)] INFO : Finished instrumentation
+[04/06/15 14:02:33 -0400 ubuntu (10781)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:02:34 -0400 ubuntu (10781)] INFO : Starting Agent shutdown
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Environment: development
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : No known dispatcher detected.
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Application: My Application (Development)
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Installing Net instrumentation
+[04/06/15 14:13:46 -0400 ubuntu (11185)] INFO : Finished instrumentation
+[04/06/15 14:13:47 -0400 ubuntu (11185)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:13:49 -0400 ubuntu (11185)] INFO : Starting Agent shutdown
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Environment: development
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : No known dispatcher detected.
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Application: My Application (Development)
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Installing Net instrumentation
+[04/06/15 14:18:30 -0400 ubuntu (11546)] INFO : Finished instrumentation
+[04/06/15 14:18:31 -0400 ubuntu (11546)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:18:34 -0400 ubuntu (11546)] INFO : Starting Agent shutdown
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Environment: development
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : No known dispatcher detected.
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Application: My Application (Development)
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Installing Net instrumentation
+[04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Finished instrumentation
+[04/06/15 14:18:41 -0400 ubuntu (11559)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:18:42 -0400 ubuntu (11559)] INFO : Starting Agent shutdown

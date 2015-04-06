@@ -4,15 +4,15 @@
 # This is automatically configured on Heroku, you only need to worry if you also
 # want to run your app locally
 
-ENV["REDISTOGO_URL"] = 'redis://redistogo:ad7a0f5c567b8f49d79130cff7439705@slimehead.redistogo.com:9032/'
+# ENV["REDISTOGO_URL"] = 'redis://redistogo:ad7a0f5c567b8f49d79130cff7439705@slimehead.redistogo.com:9032/'
 
 configure :production do
   puts "[production environment]"
   db = URI.parse(ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
 
-  require 'redis'
-  uri = URI.parse(ENV['REDISTOGO_URL'])
-  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  # require 'redis'
+  # uri = URI.parse(ENV['REDISTOGO_URL'])
+  # REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 
   ActiveRecord::Base.establish_connection(
       :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
@@ -25,9 +25,9 @@ configure :production do
 end
 
 configure :development, :test do
-  puts "[development or test Environment]"
+  puts "[develoment or test Environment]"
 
-  require 'redis'
-  uri = URI.parse(ENV['REDISTOGO_URL'])
-  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+  # require 'redis'
+  # uri = URI.parse(ENV['REDISTOGO_URL'])
+  # REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end

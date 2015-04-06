@@ -32,10 +32,6 @@ ActiveRecord::Schema.define(version: 20150315141318) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "models", force: :cascade do |t|
-    t.string "name"
-  end
-
   create_table "retweets", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tweet_id"

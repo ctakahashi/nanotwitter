@@ -95,12 +95,11 @@ tweets.sort_by!{|tweet| tweet[2]}
 tweets.each do |tweet|
 	# break if tweet[0].to_i == 890
 
-	twee = Tweet.create(user_id: tweet[0],
+	Tweet.create(user_id: tweet[0],
 		text: tweet[1],
 		created_at: tweet[2],
 		updated_at: tweet[2]
 	)
-	twee.save
 
 end
 
