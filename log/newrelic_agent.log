@@ -1302,3 +1302,16 @@
 [04/06/15 14:18:40 -0400 ubuntu (11559)] INFO : Finished instrumentation
 [04/06/15 14:18:41 -0400 ubuntu (11559)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
 [04/06/15 14:18:42 -0400 ubuntu (11559)] INFO : Starting Agent shutdown
+[04/06/15 14:42:12 -0400 ubuntu (12202)] INFO : Starting the New Relic agent in "development" environment.
+[04/06/15 14:42:12 -0400 ubuntu (12202)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/06/15 14:42:12 -0400 ubuntu (12202)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/06/15 14:42:12 -0400 ubuntu (12202)] INFO : Environment: development
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : No known dispatcher detected.
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Application: My Application (Development)
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Installing deferred Rack instrumentation
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Installing Rack::Builder middleware instrumentation
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Installing Sinatra instrumentation
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Installing Net instrumentation
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Finished instrumentation
+[04/06/15 14:42:13 -0400 ubuntu (12202)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/06/15 14:42:15 -0400 ubuntu (12202)] INFO : Starting Agent shutdown

@@ -23,8 +23,8 @@ enable :method_override
 
 set :environment, :development
 
-# size = Tweet.all.count
-# @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
+size = Tweet.all.count
+@@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
