@@ -50,8 +50,9 @@ get '/api/v1/tweets/recent/:num' do
 	tweets = []
 	number_of_tweets = params[:num].to_i || 10
 	last_id = Tweet.last.id
+	total_tweets_count = Tweet.all.count
 	count = 0
-	while tweets.size < number_of_tweets do
+	while tweets.size < number_of_tweets || tweets.size < total_tweets_count do
 		if Tweet.exists?(last_id - count)
 			tweets.push(Tweet.find(last_id - count))
 		end
