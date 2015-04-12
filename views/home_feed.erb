@@ -34,7 +34,8 @@
 			<div id = "Tweets" class="tab-pane active" >
 				<% tweets.reverse.each do |tweet| %>
 					<div class = "tweet-list">
-						<h3><%= User.find(tweet.user_id).username %></h3>
+						<img class = "tweet_header" src=<%= pic %> alt="User's profile picture" style="width:40px;height:40px" >
+						<h3 class = "tweet_header">@<%= User.find(tweet.user_id).username %></h3>
 						<p>Posted on <%= tweet.created_at %></p>
 						<p><%=tweet.text %></p>
 					</div>
@@ -42,15 +43,17 @@
 			</div>
 			<div id="Following" class = "tab-pane">	
 				<% user.following.each do |followings| %>
-					<div>
-						<a href=<%= "/user/#{followings.username}" %>><%=followings.username%></a>
+					<div class = "follow_list">
+						<img align = "middle" src=<%= User.find(followings).pic %> alt="User's profile picture" style="width:40px;height:40px" ><br>
+						<a href=<%= "/user/#{followings.username}" %>>@<%=followings.username%></a>
 					</div>
 				<% end %>
 			</div>
 			<div id = "Followers" class = "tab-pane"> 
 				<% user.leading.each do |leadings| %>
-					<div>
-						<a href=<%= "/user/#{leadings.username}" %>><%=leadings.username%></a>
+					<div class = "follow_list">
+						<img align = "middle" src=<%= User.find(leadings).pic %> alt="User's profile picture" style="width:40px;height:40px" ><br>
+						<a href=<%= "/user/#{leadings.username}" %>>@<%=leadings.username%></a>
 					</div>
 				<% end %>
 			</div>

@@ -2,7 +2,7 @@ get '/profile' do
 	if session[:user_id]
 		user = User.find(session[:user_id])
 		if user
-			erb :profile, :locals => {:name => user.name,
+			erb :home_feed, :locals => {:name => user.name,
 									  :username => user.username, 
 									  :tweets => user.tweets, 
 									  :user => user,

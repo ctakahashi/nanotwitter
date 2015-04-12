@@ -2,7 +2,8 @@
 	background-color: #01C9F5;
 	width: 100%;
 	height: 400px;
-
+	//white-space: nowrap;
+	
 }
 .login h2 {
 	font-family: "Oswald";
@@ -37,8 +38,13 @@ a.forgotPass-button {
 }
 .navbar {
 	margin-bottom: 0;
+
+
 }
-.btn{
+.header {
+	white-space: nowrap;
+}
+/*.btn{
 	border-radius: 0px;
 	color: #01C9F5;
 
@@ -59,7 +65,7 @@ a.forgotPass-button {
 .btn:active {
 	color: white;
 	background-color: #01C9F5;
-}
+}*/
 .login_button {
 	margin-top: 5px;
 }
@@ -69,6 +75,7 @@ a.forgotPass-button {
 .searchbar {
 	margin-top: 10px;
 	display: inline;
+
 }
 .search-button {
 	float: left;
@@ -104,12 +111,15 @@ a.forgotPass-button {
 	background-color: black;
 	height: 200px;
 	width: 200px;
-
+	min-width: 200px;
+	min-height: 200px;
 }
 .profile-info {
+	position: relative;
 	margin: 0;
 	float:left;
 	width:20%;
+	overflow: auto;
 }
 .profile-tabs {
 	//background-color:  #01C9F5;
@@ -137,8 +147,10 @@ a.forgotPass-button {
 }
 .tweet {
 	width: 100%;
-	margin: 0 0 0 0 ;
+	margin: 0 0 0 0px ;
 	height: 20px;
+	min-width: auto;
+	min-height:20px;
 }
 .counter {
 	float: right;
@@ -181,7 +193,11 @@ a.forgotPass-button {
 	color:white;
 }
 .following-button {
-	background-color: #01C9F5;
+	background-color: green;
+	color: white;
+}
+.following-button:hover {
+	background-color: red;
 	color: white;
 }
 .following-button:hover span{
@@ -189,4 +205,25 @@ a.forgotPass-button {
 }
 .following-button:hover:after {
 	content:'Unfollow?';
+}
+.tweet_header {
+	display: inline-block;
+	margin-top: 0;
+}
+.follow_list {
+	width: 100px;
+	height: 100px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	border-color: black;
+	background-color: #DFDFDF;
+	display: inline-block;
+}
+.follow_list img {
+	position:relative;
+	//margin-left: 50%;
+	//margin-right: 50%;
+	margin-left:  25px;
 }

@@ -11,17 +11,17 @@ require './models/comment'
 require './models/retweet'
 
 # Get information about a specific user with his or her id
-get '/api/v1/users/:id' do 
-	user = User.find(params[:id])
+get '/api/v1/users/:username' do 
+	user = User.find_by_username(params[:id])
 	if user
 		user.to_json
 	else
-		error 404, {:error => "That username is not found in our database"}.to_json
+		error 404, {:error => "That username is not found in the database"}.to_json
 	end
 end
 
-get '/api/v1/users/:id/tweets' do
-	user = User.find(params[:id])
+get '/api/v1/users/:username/tweets' do
+	user = User.find_by_username(params[:username])
 
 	if user
 		all_tweets = user.tweets
@@ -49,9 +49,13 @@ end
 get '/api/v1/tweets/recent/:num' do
 	tweets = []
 	number_of_tweets = params[:num].to_i || 10
-	tweets_list = Tweet.all.reverse
-	(0..number_of_tweets).each do |tweet|
-		tweets.push(tweets_list[tweet])
+	last_id = Tweet.last.id
+	count = 0
+	while tweets.size < number_of_tweets do
+		if Tweet.exists?(last_id - count)
+			tweets.push(Tweet.find(last_id - count))
+		end
+		count += 1
 	end
 	tweets.to_json
 end

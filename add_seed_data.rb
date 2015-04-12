@@ -93,14 +93,11 @@ end
 tweets.sort_by!{|tweet| tweet[2]}
 
 tweets.each do |tweet|
-	# break if tweet[0].to_i == 890
-
 	Tweet.create(user_id: tweet[0],
 		text: tweet[1],
 		created_at: tweet[2],
 		updated_at: tweet[2]
 	)
-
 end
 
 CSV.foreach("./seeds/follows.csv") do |rows|

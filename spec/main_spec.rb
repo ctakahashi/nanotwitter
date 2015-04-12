@@ -7,13 +7,19 @@ describe "main" do
     	if test_user
     		test_user.destroy
     	end
+
+    	User.create(name: "Pito",
+          username: "psalas",
+          password: "password",
+          email: "ps@brandeis.edu"
+    	)
  	end
 
 	it "should get a user" do
-		user = User.find_by_username("Bonnie")
-		user["name"].should == User.find_by_username("Bonnie").name
-		user["email"].should == User.find_by_username("Bonnie").email
-		user["password"].should == User.find_by_username("Bonnie").password
+		user = User.find_by_username("psalas")
+		user["name"].should == "Pito"
+		user["email"].should == "ps@brandeis.edu"
+		user["password"].should == "password"
 	end
 
 	it "should return nil for a user not found" do

@@ -23,8 +23,18 @@ enable :method_override
 
 set :environment, :development
 
-size = Tweet.all.count
-@@recent_tweets = Tweet.all[size - 101..size - 1].reverse
+# size = Tweet.all.count
+# @@recent_tweets = Tweet.all[size - 100..size - 1].reverse
+last_id = Tweet.last.id
+@@recent_tweets = []
+count = 0
+while @@recent_tweets.size < 100 do
+	if Tweet.exists?(last_id - count)
+		@@recent_tweets.push(Tweet.find(last_id - count))
+	end
+	count += 1
+end
+
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
@@ -77,7 +87,8 @@ post '/register' do
 	@user = User.create(name: params[:name],
 						username: params[:uName],
 						password: params[:pass],
-						email: params[:email]
+						email: params[:email],
+						pic: Faker::Avatar.image
 						)
 
 	if @user.valid?
