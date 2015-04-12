@@ -25,15 +25,7 @@ set :environment, :development
 
 # size = Tweet.all.count
 # @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
-last_id = Tweet.last.id
-@@recent_tweets = []
-count = 0
-while @@recent_tweets.size < 100 do
-	if Tweet.exists?(last_id - count)
-		@@recent_tweets.push(Tweet.find(last_id - count))
-	end
-	count += 1
-end
+
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
@@ -61,7 +53,17 @@ get '/' do
 	else
 		# @one_k_tweets = Tweet.all
 		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
-
+		# last_id = Tweet.last.id
+		unless @@recent_tweets
+			@@recent_tweets = []
+			count = 0
+			while @@recent_tweets.size < 100 do
+				if Tweet.exists?(last_id - count)
+					@@recent_tweets.push(Tweet.find(last_id - count))
+				end
+				count += 1
+			end
+		end
 		erb :index, :layout => :notSignedIn
 	end
 end
