@@ -12,7 +12,7 @@ require './models/retweet'
 
 # Get information about a specific user with his or her id
 get '/api/v1/users/:username' do 
-	user = User.find_by_username(params[:id])
+	user = User.find_by_username(params[:username])
 	if user
 		user.to_json
 	else
