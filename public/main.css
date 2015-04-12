@@ -1,9 +1,18 @@
+body {
+	margin: 0 0 0 0;
+}
+#wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1280px;
+}
 .login {
 	background-color: #01C9F5;
 	width: 100%;
 	height: 400px;
-	//white-space: nowrap;
-	
+	white-space: nowrap;
+	overflow: auto;
+
 }
 .login h2 {
 	font-family: "Oswald";
@@ -25,7 +34,7 @@ a.signup-button {
 	color: white;
 }
 .forgotPass {
-	position: absolute;
+	position: relative;
 	margin-left: 0px;
 	font-family: "Oswald";
 	font-weight: 300;
@@ -179,9 +188,14 @@ a.forgotPass-button {
 .tweet-list {
 	background-color: #01C9F5;
 	margin-bottom: 10px; 
-	border-radius: 10px;
+	border-radius: 0px;
 	border-color: white;
 	word-wrap: break-word;
+}
+.tweet-scroll {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
 .tweet-list p {
 	color: white;
@@ -226,4 +240,13 @@ a.forgotPass-button {
 	//margin-left: 50%;
 	//margin-right: 50%;
 	margin-left:  25px;
+}
+.tweet-count {
+	font-family: Oswald;
+	font-weight: 300;
+	color: #01C9F5;
+	font-size: 50px;
+}
+.tweet-list p:nth-of-type(even) {
+	font-size: 20px;
 }

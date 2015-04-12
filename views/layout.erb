@@ -10,6 +10,7 @@
     <%= css :application %>
 
   </head>
+  <div id="wrapper">
   <body>
   <nav class= "navbar navbar-default">
       <div class = "container-fluid">
@@ -17,31 +18,42 @@
           <a style = "color:#01C9F5" class = "navbar-brand" href = "/">nanoTwitter</a>
         </div>
         <div>
-          <ul class = "nav navbar-nav">
+          <ul class = "nav navbar-nav nav-tabs">
             <li><a href = "/profile">Profile</a></li>
-            <li><a href = "/settings">Settings</a></li>
+            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href = "#" role="button" aria-expanded="false">Account<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+            <li><a href ="/settings">Settings</a></li>
+            <li><a href = "/logout">Log Out</a></li>
+            </li>
+            </ul>
             <li><a href= "/about_us">About Us</a></li>
           </ul>
-          <div class = "container logout-button">
+          <!--<div class = "container logout-button">
             <div class = "row">
               <div class = "col-md-6">
                 <button onclick="window.location.href='/logout'" type="button" class="btn btn-default searchbar tweet-button">Logout</button>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
-        <div class = "container">
+        <!--<div class = "container row">-->
           <div class="row">
-            <div class ="col-md-4 col-md-offset-3" >
+            <div class ="col-md-6 col-md-offset-1">
+
               <form class="nav navbar-nav" action="/search" method="POST">
+              <div class = "input-group search-area">
                 <input type="text" class="form-control searchbar" name="search" placeholder="Search for friends, tweets...">
+                <span class="input-group-btn">
+                  <button class="btn btn-default search-button" type="send"><i class="glyphicon glyphicon-search" aria-hidden="true" ></i></button>
+                </span>
               </form>
-                <button type="submit" class="btn  btn-default search-button" aria-label="Left Align" >
+                <!--<button type="submit" class="btn  btn-default search-button" aria-label="Left Align" >
                   <i class="glyphicon glyphicon-search" aria-hidden="true" ></i>
-                </button>
+                </button>-->
+            </div>
             </div>
           </div>
-        </div>
+        <!--</div>-->
 
       </div>
      </nav>
@@ -61,4 +73,5 @@
     <script type = "text/javascript" src="main.js"></script>
     <%= js :application %>
   </body>
+  </div>
 </html>

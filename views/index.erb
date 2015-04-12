@@ -1,6 +1,6 @@
 <div class="jumbotron login">
 	<h2 position = "top: 0px"style ="color: white">   Amauris F. | Chungyuk T. | Jonathan M. | Yoseph K. </h2>
-	<h2 position = "top: 0px"style ="color: white">   Welcome to nanoTwitter! <br> Log in Below, or <a class = "signup-button" href ="/signup">Sign Up Here</a></h3> </h2>
+	<h2 position = "top: 0px"style ="color: white">   Welcome to nanoTwitter! <br> Log in Below, or <a class = "signup-button" href ="/signup">Sign Up Here</a></h2>
 	<form role="form" action="/login">
 		<div class="form-group col-md-3">
 			<label style ="color:white" for "username">Username</label>
@@ -16,11 +16,15 @@
 	</form>
 	<h3 class= "forgotPass" style="color: white"> Forgot your password? <a class = "forgotPass-button" href ="/resetpassword">Click Here</a></h3> 
 </div>
+<h3 class = "tweet-count" align="middle"><%= Tweet.all.count%> Tweets and counting. <br>Take a look at what people are tweeting.</h3>
+<div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
 <% @@recent_tweets.each do |tweet| %>
-	<div class = "tweet-list">
-		<img src=<%= User.find(tweet.user_id).pic %> alt="User's profile picture" style="width:40px;height:40px" >
-		<h3><%= User.find(tweet.user_id).username %></h3>
-		<p>Posted on <%= tweet.created_at %></p>
-		<p><%=tweet.text %></p>
-	</div>
+		<div class = "tweet-list" >
+			<img class = "tweet_header" src=<%= User.find(tweet.user_id).pic %> alt="User's profile picture" style="width:40px;height:40px" >
+			<h3 class = "tweet_header">@<%= User.find(tweet.user_id).username %></h3>
+			<p>Posted on <%= tweet.created_at %></p>
+			<p><%=tweet.text %></p>
+		</div>
 <% end %> 
+</div>
+<br>

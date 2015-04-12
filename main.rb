@@ -24,7 +24,7 @@ enable :method_override
 set :environment, :development
 
 # size = Tweet.all.count
-# @@recent_tweets = Tweet.all[size - 100..size - 1].reverse
+# @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 last_id = Tweet.last.id
 @@recent_tweets = []
 count = 0
@@ -34,7 +34,6 @@ while @@recent_tweets.size < 100 do
 	end
 	count += 1
 end
-
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
@@ -92,7 +91,9 @@ post '/register' do
 						)
 
 	if @user.valid?
-		erb :index, :layout => :notSignedIn
+		#erb :index, :layout => :notSignedIn
+		session[:user_id] = @user.id
+		redirect 'profile'
 	else
 		erb :signup
 	end
