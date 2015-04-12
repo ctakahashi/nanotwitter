@@ -54,7 +54,7 @@ get '/' do
 	else
 		# @one_k_tweets = Tweet.all
 		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
-		# last_id = Tweet.last.id
+		last_id = Tweet.last.id
 		unless @@recent_tweets
 			@@recent_tweets = []
 			count = 0
