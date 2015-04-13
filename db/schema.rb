@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20150315141318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "bonds", force: :cascade do |t|
     t.integer  "follower_id"
@@ -30,10 +31,6 @@ ActiveRecord::Schema.define(version: 20150315141318) do
     t.date     "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "models", force: :cascade do |t|
-    t.string "name"
   end
 
   create_table "retweets", force: :cascade do |t|
