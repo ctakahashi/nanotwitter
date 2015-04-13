@@ -252,7 +252,7 @@ a.forgotPass-button {
 	font-size: 20px;
 }
 
-.input-group-btn {
+.input-group-btn > .btn{
 	position: absolute;
 	float: left;
 }
