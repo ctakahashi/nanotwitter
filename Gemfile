@@ -16,8 +16,10 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'typhoeus'
-gem 'unicorn'
+#gem 'unicorn'
 # gem 'puma'
 # gem 'pry-byebug'
-
+gem 'passenger' 
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+# web bundle exec rackup config.ru -p $PORT 
+# web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
