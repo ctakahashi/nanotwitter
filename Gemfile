@@ -16,6 +16,7 @@ gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'typhoeus'
+gem 'puma'
 # gem 'pry-byebug'
 
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'

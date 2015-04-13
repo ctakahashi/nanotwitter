@@ -1872,3 +1872,32 @@
 [04/12/15 19:36:11 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (4173)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
 [04/12/15 19:36:14 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (4173)] INFO : Doing deferred dependency-detection before Rack startup
 [04/12/15 19:36:14 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (4173)] INFO : Installing ActiveRecord 4 instrumentation
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : Starting the New Relic agent in "development" environment.
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : Reading configuration from config/newrelic.yml (/Users/Josephk/Dropbox/nanotwitter)
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : Environment: development
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : No known dispatcher detected.
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] INFO : Application: My Application (Development)
+[04/12/15 20:22:44 -0400 Josephs-MacBook-Air.local (28006)] WARN : Failed to determine processor count, assuming 1
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Installing Net instrumentation
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Installing Sinatra instrumentation
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Installing deferred Rack instrumentation
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Installing Rack::Builder middleware instrumentation
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Finished instrumentation
+[04/12/15 20:22:45 -0400 Josephs-MacBook-Air.local (28006)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/12/15 20:22:51 -0400 Josephs-MacBook-Air.local (28006)] INFO : Starting Agent shutdown
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Starting the New Relic agent in "development" environment.
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Reading configuration from config/newrelic.yml (/Users/Josephk/Dropbox/nanotwitter)
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Environment: development
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : No known dispatcher detected.
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Application: My Application (Development)
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] WARN : Failed to determine processor count, assuming 1
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Installing Net instrumentation
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Installing Sinatra instrumentation
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Installing deferred Rack instrumentation
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Installing Rack::Builder middleware instrumentation
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Finished instrumentation
+[04/12/15 20:23:30 -0400 Josephs-MacBook-Air.local (28039)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/12/15 20:23:45 -0400 Josephs-MacBook-Air.local (28039)] INFO : Doing deferred dependency-detection before Rack startup
+[04/12/15 20:23:45 -0400 Josephs-MacBook-Air.local (28039)] INFO : Installing ActiveRecord 4 instrumentation
