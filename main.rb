@@ -18,8 +18,12 @@ require './user_service.rb'
 require './follow_service.rb'
 require './api_service.rb'
 
+configure { set :server, :puma }
+
 enable :sessions
 enable :method_override
+
+
 
 set :environment, :development
 
