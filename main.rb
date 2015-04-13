@@ -58,7 +58,7 @@ get '/' do
 		unless @@recent_tweets
 			@@recent_tweets = []
 			count = 0
-			while @@recent_tweets.size < 20 do
+			while @@recent_tweets.size < 100 do
 				if Tweet.exists?(last_id - count)
 					@@recent_tweets.push(Tweet.find(last_id - count))
 				end
