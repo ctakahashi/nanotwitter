@@ -87,8 +87,9 @@ a.forgotPass-button {
 
 }
 .search-button {
-	float: left;
-	margin-top: 10px;
+	//float: left;
+	//margin-top: 10px;
+	margin-top: -12px;
 }
 .forgot-header {
 	font-family: "Oswald";
@@ -187,7 +188,7 @@ a.forgotPass-button {
 }
 .tweet-list {
 	background-color: #01C9F5;
-	margin-bottom: 10px; 
+	margin-bottom: 10px;
 	border-radius: 0px;
 	border-color: white;
 	word-wrap: break-word;
@@ -249,4 +250,9 @@ a.forgotPass-button {
 }
 .tweet-list p:nth-of-type(even) {
 	font-size: 20px;
+}
+
+.input-group-btn {
+	position: absolute;
+	float: left;
 }
