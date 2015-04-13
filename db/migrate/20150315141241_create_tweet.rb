@@ -10,5 +10,6 @@ class CreateTweet < ActiveRecord::Migration
 		end
 
 		add_index :tweets, :user_id
+		add_index :tweets, :text
 	end
 end

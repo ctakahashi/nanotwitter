@@ -12,10 +12,5 @@ class CreateUser < ActiveRecord::Migration
 
 		add_index :users, :pic
 		add_index :users, :username
-
-		add_index :users, :password
-		add_index :users, :email
-		add_index :users, :name
-
 	end
 end
