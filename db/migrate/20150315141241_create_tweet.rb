@@ -1,5 +1,5 @@
 class CreateTweet < ActiveRecord::Migration
-  def change
+	def change
 		create_table :tweets do |t| 
 			t.integer		:user_id
 			t.boolean		:retweet
@@ -9,6 +9,6 @@ class CreateTweet < ActiveRecord::Migration
 			t.timestamps	null: false
 		end
 
-		add_index :tweets, :user_id
+		add_index :tweets, :user_id, unique: true
 	end
 end

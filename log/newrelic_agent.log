@@ -1963,3 +1963,27 @@
 [04/12/15 22:20:11 -0400 ubuntu (455)] INFO : Installing Net instrumentation
 [04/12/15 22:20:11 -0400 ubuntu (455)] INFO : Finished instrumentation
 [04/12/15 22:20:12 -0400 ubuntu (455)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Starting the New Relic agent in "development" environment.
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Environment: development
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : No known dispatcher detected.
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Application: My Application (Development)
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Installing deferred Rack instrumentation
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Installing Rack::Builder middleware instrumentation
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Installing Sinatra instrumentation
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Installing Net instrumentation
+[04/12/15 23:47:04 -0400 ubuntu (1420)] INFO : Finished instrumentation
+[04/12/15 23:47:05 -0400 ubuntu (1420)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Starting the New Relic agent in "development" environment.
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Environment: development
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : No known dispatcher detected.
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Application: My Application (Development)
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Installing deferred Rack instrumentation
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Installing Rack::Builder middleware instrumentation
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Installing Sinatra instrumentation
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Installing Net instrumentation
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Finished instrumentation
+[04/12/15 23:58:01 -0400 ubuntu (1607)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
