@@ -31,6 +31,8 @@ set :environment, :development
 # @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 
 @@recent_tweets = nil
+# REDIS.set(:recent_tweets, nil)
+REDIS.set("tweets_queue_index", -1)
 
 class App < Sinatra::Base
 	register Sinatra::AssetPack
@@ -59,16 +61,52 @@ get '/' do
 		# @one_k_tweets = Tweet.all
 		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
 		last_id = Tweet.last.id
-		unless @@recent_tweets
-			@@recent_tweets = []
+		# unless @@recent_tweets
+		# 	@@recent_tweets = []
+		# 	count = 0
+		# 	while @@recent_tweets.size < 100 do
+		# 		if Tweet.exists?(last_id - count)
+		# 			@@recent_tweets.push(Tweet.find(last_id - count))
+		# 		end
+		# 		count += 1
+		# 	end
+		# end
+		if REDIS.get("tweets_queue_index") == "-1"
+			REDIS.set("tweets_queue_index", 0)
 			count = 0
-			while @@recent_tweets.size < 100 do
+			while REDIS.get("tweets_queue_index") != "100" && count < last_id do
+				# binding.pry
 				if Tweet.exists?(last_id - count)
-					@@recent_tweets.push(Tweet.find(last_id - count))
+					tweet = Tweet.find(last_id - count)
+					user = User.find(tweet.user_id)
+					tweet_num = "tweet".concat REDIS.get("tweets_queue_index")
+					REDIS.hmset(tweet_num, "text", tweet.text, 
+							"created_at", tweet.created_at, 
+							"username", user.username,
+							"pic", user.pic)
+					REDIS.incr("tweets_queue_index")
 				end
 				count += 1
 			end
+			REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
 		end
+
+
+		# unless REDIS.get(:recent_tweets)
+		# 	REDIS.set(:recent_tweets, [])
+		# 	count = 0
+		# 	while REDIS.get(:recent_tweets).size < 100 && count < last_id do 
+		# 		if Tweet.exists(last_id - count)
+		# 			tweet = Tweet.find(last_id - count)
+		# 			user = User.find(tweet.user_id)
+		# 			REDIS.get(:recent_tweets).push(:text => tweet.text,
+		# 							:created_at => tweet.created_at,
+		# 							:username => user.username, 
+		# 							:pic => user.pic)
+		# 		end
+		# 		count += 1
+		# 	end
+		# end
 		erb :index, :layout => :notSignedIn
 	end
 end

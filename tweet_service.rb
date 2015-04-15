@@ -3,7 +3,11 @@ post '/tweet' do
 	@tweet = Tweet.create(text: params[:tweet_text],
 						  user_id: session[:user_id])
 	if @tweet.valid?
+		# REDIS.get(:recent_tweets).unshift(@tweet)
+		# REDIS.get(:recent_tweets).pop
 		redirect "/user/#{username}"
+	else
+		error 404, {:error => "The tweet was invalid!"}
 	end
 end
 
