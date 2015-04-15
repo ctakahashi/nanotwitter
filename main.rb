@@ -30,7 +30,7 @@ set :environment, :development
 # size = Tweet.all.count
 # @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 
-@@recent_tweets = nil
+@@recent_tweets = []
 # REDIS.set(:recent_tweets, nil)
 REDIS.set("tweets_queue_index", -1)
 
@@ -71,7 +71,7 @@ get '/' do
 		# 		count += 1
 		# 	end
 		# end
-		if REDIS.get("tweets_queue_index") == "-1"
+		if REDIS.get("tweets_queue_index") == "-1" 
 			REDIS.set("tweets_queue_index", 0)
 			count = 0
 			while REDIS.get("tweets_queue_index") != "100" && count < last_id do
@@ -85,6 +85,7 @@ get '/' do
 							"username", user.username,
 							"pic", user.pic)
 					REDIS.incr("tweets_queue_index")
+					@@recent_tweets.push(REDIS.hgetall(tweet_num))
 				end
 				count += 1
 			end
@@ -107,7 +108,7 @@ get '/' do
 		# 		count += 1
 		# 	end
 		# end
-		@tweet_index = REDIS.get("tweets_queue_index").to_i
+		# @tweet_index = REDIS.get("tweets_queue_index").to_i
 		erb :index, :layout => :notSignedIn
 	end
 end

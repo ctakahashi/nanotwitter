@@ -2153,3 +2153,31 @@
 [04/15/15 11:43:16 -0400 ubuntu (14905)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
 [04/15/15 11:43:21 -0400 ubuntu (14905)] INFO : Doing deferred dependency-detection before Rack startup
 [04/15/15 11:43:21 -0400 ubuntu (14905)] INFO : Installing ActiveRecord 4 instrumentation
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Starting the New Relic agent in "development" environment.
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Environment: development
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : No known dispatcher detected.
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Application: My Application (Development)
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Installing deferred Rack instrumentation
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Installing Rack::Builder middleware instrumentation
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Installing Sinatra instrumentation
+[04/15/15 12:13:16 -0400 ubuntu (15224)] INFO : Installing Net instrumentation
+[04/15/15 12:13:17 -0400 ubuntu (15224)] INFO : Finished instrumentation
+[04/15/15 12:13:18 -0400 ubuntu (15224)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/15/15 12:13:32 -0400 ubuntu (15224)] INFO : Doing deferred dependency-detection before Rack startup
+[04/15/15 12:13:32 -0400 ubuntu (15224)] INFO : Installing ActiveRecord 4 instrumentation
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Starting the New Relic agent in "development" environment.
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Environment: development
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : No known dispatcher detected.
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Application: My Application (Development)
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Installing deferred Rack instrumentation
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Installing Rack::Builder middleware instrumentation
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Installing Sinatra instrumentation
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Installing Net instrumentation
+[04/15/15 12:14:11 -0400 ubuntu (15245)] INFO : Finished instrumentation
+[04/15/15 12:14:12 -0400 ubuntu (15245)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
+[04/15/15 12:14:19 -0400 ubuntu (15245)] INFO : Doing deferred dependency-detection before Rack startup
+[04/15/15 12:14:19 -0400 ubuntu (15245)] INFO : Installing ActiveRecord 4 instrumentation
