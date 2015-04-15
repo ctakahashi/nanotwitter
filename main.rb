@@ -17,6 +17,7 @@ require './tweet_service.rb'
 require './user_service.rb'
 require './follow_service.rb'
 require './api_service.rb'
+require 'sinatra/paginate'
 
 configure { set :server, :puma }
 
@@ -30,12 +31,14 @@ set :environment, :development
 # size = Tweet.all.count
 # @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 
-@@recent_tweets = []
+@@recent_tweets = nil
 # REDIS.set(:recent_tweets, nil)
 REDIS.set("tweets_queue_index", -1)
 
+Struct.new('Result', :total, :size, :users)
 class App < Sinatra::Base
 	register Sinatra::AssetPack
+	register Sinatra::Paginate
 	assets do
 		serve '/js', :from => 'public/js'
 		js :application, [
@@ -51,9 +54,22 @@ class App < Sinatra::Base
 
 		js_compression :jsmin
 		css_compression :sass
+
 	end
 
+	helpers do
+		def page
+			[params[:page].to_i - 1, 0].max
+		end
+	end
+
+	get '/page' do
+		@users = User.all(limit: 10, offset: page * 10)
+		@result = Struct::Result.new(User.count, @users.count, @users)
+    	erb :page
+	end
 end
+
 get '/' do
 	if session[:user_id]
 		redirect '/home'

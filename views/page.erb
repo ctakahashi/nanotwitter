@@ -1,0 +1,9 @@
+<ul>
+	<% @result.users.each do |user| %>
+		<li>
+			<span><%= user.id%> </span>
+			<span><%= user.name %></span>
+		</li>
+	<% end %>
+</ul> 
+<%= raw(paginate @result, items_per_page: 10, labels: {first:'<<', last: '>>'}, renderer: 'erb') %>
