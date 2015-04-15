@@ -70,45 +70,45 @@ get '/' do
 		# 		end
 		# 		count += 1
 		# 	end
-		# end
-		if REDIS.get("tweets_queue_index") == "-1" 
-			REDIS.set("tweets_queue_index", 0)
+		# end 
+		unless @@recent_tweets
+			@@recent_tweets = []
 			count = 0
-			while REDIS.get("tweets_queue_index") != "100" && count < last_id do
-				# binding.pry
+			while @@recent_tweets.size < 100 && count < last_id do
 				if Tweet.exists?(last_id - count)
 					tweet = Tweet.find(last_id - count)
 					user = User.find(tweet.user_id)
-					tweet_num = "tweet".concat REDIS.get("tweets_queue_index")
-					REDIS.hmset(tweet_num, "text", tweet.text, 
-							"created_at", tweet.created_at, 
-							"username", user.username,
-							"pic", user.pic)
-					REDIS.incr("tweets_queue_index")
-					@@recent_tweets.push(REDIS.hgetall(tweet_num))
+					@@recent_tweets.push(:text => tweet.text,
+									:created_at => tweet.created_at,
+									:username => user.username,
+									:pic => user.pic)
 				end
 				count += 1
 			end
-			REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
 		end
 
-
-		# unless REDIS.get(:recent_tweets)
-		# 	REDIS.set(:recent_tweets, [])
+		# if REDIS.get("tweets_queue_index") == "-1" 
+		# 	REDIS.set("tweets_queue_index", 0)
 		# 	count = 0
-		# 	while REDIS.get(:recent_tweets).size < 100 && count < last_id do 
-		# 		if Tweet.exists(last_id - count)
+		# 	while REDIS.get("tweets_queue_index") != "100" && count < last_id do
+		# 		# binding.pry
+		# 		if Tweet.exists?(last_id - count)
 		# 			tweet = Tweet.find(last_id - count)
 		# 			user = User.find(tweet.user_id)
-		# 			REDIS.get(:recent_tweets).push(:text => tweet.text,
-		# 							:created_at => tweet.created_at,
-		# 							:username => user.username, 
-		# 							:pic => user.pic)
+		# 			tweet_num = "tweet".concat REDIS.get("tweets_queue_index")
+		# 			REDIS.hmset(tweet_num, "text", tweet.text, 
+		# 					"created_at", tweet.created_at, 
+		# 					"username", user.username,
+		# 					"pic", user.pic)
+		# 			REDIS.incr("tweets_queue_index")
+		# 			@@recent_tweets.push(REDIS.hgetall(tweet_num))
 		# 		end
 		# 		count += 1
 		# 	end
+		# 	REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
 		# end
-		# @tweet_index = REDIS.get("tweets_queue_index").to_i
+
+
 		erb :index, :layout => :notSignedIn
 	end
 end

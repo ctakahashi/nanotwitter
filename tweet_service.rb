@@ -5,6 +5,7 @@ post '/tweet' do
 	if @tweet.valid?
 		# REDIS.get(:recent_tweets).unshift(@tweet)
 		# REDIS.get(:recent_tweets).pop
+		
 		redirect "/user/#{username}"
 	else
 		error 404, {:error => "The tweet was invalid!"}
