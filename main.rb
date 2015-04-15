@@ -107,8 +107,8 @@ get '/' do
 		# 		count += 1
 		# 	end
 		# end
-		current_tweet_index = REDIS.get("tweets_queue_index")
-		erb :index, :layout => :notSignedIn, :locals => {:tweet_index => current_tweet_index}
+		@tweet_index = REDIS.get("tweets_queue_index")
+		erb :index, :layout => :notSignedIn
 	end
 end
 

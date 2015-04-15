@@ -19,7 +19,7 @@
 <h3 class = "tweet-count" align="middle"><%= Tweet.all.count%> Tweets and counting. <br>Take a look at what people are tweeting.</h3>
 <div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
 <% 100.times do %>
-	<% tweet_num = "tweet".concat(tweet_index) %>
+	<% tweet_num = "tweet".concat(@tweet_index) %>
 	<% if REDIS.hgetall(tweet_num) %>	
 		<div class = "tweet-list" >
 			<img class = "tweet_header" src=<%= REDIS.hget(tweet_num, "pic") %> alt="User's profile picture" style="width:40px;height:40px" >
@@ -27,7 +27,7 @@
 			<p>Posted on <%= REDIS.hget(tweet_num, "created_at") %></p>
 			<p><%= REDIS.hget(tweet_num, "text") %></p>
 		</div>
-		<% (tweet_index + 1) % 100) %>
+		<% @tweet_index = (@tweet_index + 1) % 100) %>
 	<% end %>
 <% end %> 
 </div>
