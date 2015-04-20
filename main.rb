@@ -127,7 +127,7 @@ get '/' do
 		# 	REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
 		# end
 
-
+		@@tweet_count
 		erb :index, :layout => :notSignedIn
 	end
 end
