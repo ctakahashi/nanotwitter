@@ -5,7 +5,7 @@
 # want to run your app locally
 
 ENV["REDISTOGO_URL"] = 'redis://redistogo:ad7a0f5c567b8f49d79130cff7439705@slimehead.redistogo.com:9032/'
-ENV["REDISCLOUD_URL"] = 'redis://rediscloud:J1KxpOMu0m2AYyVt@pub-redis-12796.us-east-1-4.3.ec2.garantiadata.com:12796/'
+ENV["REDISCLOUD_URL"] = 'redis://rediscloud:OPd06SvVN0d0NEVw@pub-redis-15976.us-east-1-4.1.ec2.garantiadata.com:15976/'
 
 configure :production do
   puts "[production environment]"
