@@ -91,6 +91,8 @@ get '/' do
 		# 	end
 		# end 
 		unless @@recent_tweets
+			@@test_user =  User.find_by_username("test_user")
+
 			@@recent_tweets = []
 
 			tweets = Tweet.last(100).reverse
