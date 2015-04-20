@@ -33,6 +33,7 @@ set :environment, :development
 # @@recent_tweets = Tweet.all[size - 101..size - 1].reverse
 
 @@recent_tweets = nil
+@@tweet_count = Tweet.count
 # REDIS.set(:recent_tweets, nil)
 # REDIS.set("tweets_queue_index", -1)
 

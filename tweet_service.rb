@@ -11,6 +11,7 @@ post '/tweet' do
 									:pic => user.pic)
 		@@recent_tweets.pop
 		redirect "/user/#{user.username}"
+		@@tweet_count += 1
 	else
 		error 404, {:error => "The tweet was invalid!"}
 	end

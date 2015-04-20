@@ -9,6 +9,7 @@ get '/test_tweet' do
 									:username => @@test_user.username,
 									:pic => @@test_user.pic)
 		@@recent_tweets.pop
+		@@tweet_count += 1
 		"test_user has tweeted!"
 end
 
@@ -24,6 +25,7 @@ get '/test_follow' do
 end
 
 get '/reset' do
+	@@tweet_count -= Tweet.where(user_id: @@test_user.id).count
 	Tweet.where(user_id: @@test_user.id).destroy_all
 	@@test_user.following.each do |user|
 		@@test_user.unfollow(user)

@@ -11,6 +11,7 @@ gem 'rack'
 gem 'rack-test'
 gem 'rake'
 gem 'redis'
+gem 'resque', "~> 1.22.0"
 gem 'rspec'
 gem 'shotgun'
 gem 'sinatra'

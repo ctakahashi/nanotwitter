@@ -24,7 +24,7 @@ get '/home' do
 		if user
 			following_tweets = Array.new
 			user.following.each do |followed_user|
-				followed_user.tweets.each do |tweet|
+				followed_user.tweets.last(100).each do |tweet|
 					following_tweets.push(tweet)
 				end
 			end
