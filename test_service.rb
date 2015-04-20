@@ -1,4 +1,4 @@
-@@test_user =  User.find_by_username("test_user")
+# @@test_user =  User.find_by_username("test_user")
 
 get '/test_tweet' do
 
