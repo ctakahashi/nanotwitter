@@ -2842,136 +2842,19 @@
 [04/17/15 21:47:55 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27408)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
 [04/17/15 21:48:00 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27408)] INFO : Doing deferred dependency-detection before Rack startup
 [04/17/15 21:48:00 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27408)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : Reading configuration from config/newrelic.yml (/home/ctakahashi/Dropbox/nanotwitter)
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : Environment: development
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : No known dispatcher detected.
-[04/17/15 21:49:51 -0400 ubuntu (4796)] INFO : Application: My Application (Development)
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Installing deferred Rack instrumentation
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Installing Sinatra instrumentation
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Installing Net instrumentation
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Finished instrumentation
-[04/17/15 21:49:52 -0400 ubuntu (4796)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 21:49:58 -0400 ubuntu (4796)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 21:49:58 -0400 ubuntu (4796)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Environment: development
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : No known dispatcher detected.
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Application: My Application (Development)
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Installing deferred Rack instrumentation
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Installing Net instrumentation
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Installing Sinatra instrumentation
-[04/17/15 21:50:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Finished instrumentation
-[04/17/15 21:50:58 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 21:51:03 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 21:51:03 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:51:13 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27555)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Environment: development
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : No known dispatcher detected.
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Application: My Application (Development)
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Installing deferred Rack instrumentation
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Installing Net instrumentation
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Installing Sinatra instrumentation
-[04/17/15 21:52:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Finished instrumentation
-[04/17/15 21:52:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 21:52:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 21:52:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27610)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Environment: development
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : No known dispatcher detected.
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Application: My Application (Development)
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Installing deferred Rack instrumentation
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Installing Net instrumentation
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Installing Sinatra instrumentation
-[04/17/15 21:53:10 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Finished instrumentation
-[04/17/15 21:53:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 21:53:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:53:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 21:56:33 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27741)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Environment: development
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : No known dispatcher detected.
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Application: My Application (Development)
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Installing deferred Rack instrumentation
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Installing Net instrumentation
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Installing Sinatra instrumentation
-[04/17/15 21:59:41 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Finished instrumentation
-[04/17/15 21:59:42 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 21:59:44 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 21:59:44 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 21:59:48 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28073)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Environment: development
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : No known dispatcher detected.
-[04/17/15 22:02:49 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Application: My Application (Development)
-[04/17/15 22:02:50 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Installing deferred Rack instrumentation
-[04/17/15 22:02:50 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 22:02:50 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Installing Net instrumentation
-[04/17/15 22:02:50 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Installing Sinatra instrumentation
-[04/17/15 22:02:50 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Finished instrumentation
-[04/17/15 22:02:51 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 22:02:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 22:02:57 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 22:03:04 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28179)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Environment: development
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : No known dispatcher detected.
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Application: My Application (Development)
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Installing deferred Rack instrumentation
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Installing Net instrumentation
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Installing Sinatra instrumentation
-[04/17/15 22:13:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Finished instrumentation
-[04/17/15 22:13:18 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 22:13:25 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 22:13:25 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 22:13:33 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28520)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Environment: development
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : No known dispatcher detected.
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Application: My Application (Development)
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Installing deferred Rack instrumentation
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Installing Net instrumentation
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Installing Sinatra instrumentation
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Finished instrumentation
-[04/17/15 22:17:17 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 22:17:20 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 22:17:20 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 22:17:25 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28647)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Starting the New Relic agent in "development" environment.
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Environment: development
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : No known dispatcher detected.
-[04/17/15 22:19:15 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Application: My Application (Development)
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Installing deferred Rack instrumentation
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Installing Rack::Builder middleware instrumentation
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Installing Net instrumentation
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Installing Sinatra instrumentation
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Finished instrumentation
-[04/17/15 22:19:16 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Reporting to: https://rpm.newrelic.com/accounts/942490/applications/13596516
-[04/17/15 22:19:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Doing deferred dependency-detection before Rack startup
-[04/17/15 22:19:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] INFO : Installing ActiveRecord 4 instrumentation
-[04/17/15 22:19:28 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (28747)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Starting the New Relic agent in "development" environment.
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Reading configuration from config/newrelic.yml (/home/amauris/Dropbox/nanotwitter)
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Environment: development
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : No known dispatcher detected.
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Application: My Application (Development)
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Installing deferred Rack instrumentation
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Installing Rack::Builder middleware instrumentation
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Installing Net instrumentation
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Installing Sinatra instrumentation
+[04/17/15 21:49:19 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Finished instrumentation
+[04/17/15 21:49:23 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Doing deferred dependency-detection before Rack startup
+[04/17/15 21:49:23 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Installing ActiveRecord 4 instrumentation
+[04/17/15 21:50:08 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] ERROR : Error establishing connection with New Relic Service at collector.newrelic.com:443:
+[04/17/15 21:50:08 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error talking to collector-121.newrelic.com:443 after 2 attempts: getaddrinfo: Name or service not known
+[04/17/15 21:50:08 -0400 amauris-Lenovo-IdeaPad-Yoga-11S (27452)] INFO : Will re-attempt in 60 seconds

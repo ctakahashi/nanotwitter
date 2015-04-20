@@ -18,6 +18,7 @@ require './user_service.rb'
 require './follow_service.rb'
 require './api_service.rb'
 require 'sinatra/paginate'
+require './test_service.rb'
 
 configure { set :server, :puma }
 
@@ -33,7 +34,7 @@ set :environment, :development
 
 @@recent_tweets = nil
 # REDIS.set(:recent_tweets, nil)
-REDIS.set("tweets_queue_index", -1)
+# REDIS.set("tweets_queue_index", -1)
 
 Struct.new('Result', :total, :size, :users)
 class App < Sinatra::Base
@@ -76,7 +77,9 @@ get '/' do
 	else
 		# @one_k_tweets = Tweet.all
 		# @recent_tweets = Tweet.all.sort_by{|tweet| tweet.created_at}[Tweet.all.size - 101..Tweet.all.size - 1].reverse
-		last_id = Tweet.last.id
+		
+		#last_id = Tweet.last.id
+		
 		# unless @@recent_tweets
 		# 	@@recent_tweets = []
 		# 	count = 0
@@ -89,17 +92,14 @@ get '/' do
 		# end 
 		unless @@recent_tweets
 			@@recent_tweets = []
-			count = 0
-			while @@recent_tweets.size < 100 && count < last_id do
-				if Tweet.exists?(last_id - count)
-					tweet = Tweet.find(last_id - count)
-					user = User.find(tweet.user_id)
-					@@recent_tweets.push(:text => tweet.text,
-									:created_at => tweet.created_at,
-									:username => user.username,
-									:pic => user.pic)
-				end
-				count += 1
+
+			tweets = Tweet.last(100).reverse
+			tweets.each do |tweet|
+				user = User.find(tweet.user_id)
+				@@recent_tweets.push(:text => tweet.text,
+			 						:created_at => tweet.created_at,
+			 						:username => user.username,
+			 						:pic => user.pic)
 			end
 		end
 

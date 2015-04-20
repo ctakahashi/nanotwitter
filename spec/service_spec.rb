@@ -41,7 +41,7 @@ describe "service" do
   end 
 
   it "should return a tweet based on the id" do
-    get "/api/v1/tweets/#{Tweet.all.count}"
+    get "/api/v1/tweets/#{Tweet.count}"
     last_response.should be_ok
     attributes = JSON.parse(last_response.body) 
     attributes["text"].should == "test tweet"
