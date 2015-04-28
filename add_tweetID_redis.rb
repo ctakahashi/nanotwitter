@@ -9,13 +9,13 @@ require './models/bond'
 users = User.all
 
 #list of people who are following you
-users.each do |user|
-	#user = user.find(user_id)
-	leading = user.leading
-	leading.each do |follower|
-		$redis.lpush("l#{user.id}", "#{follower.id}")
-	end
-end
+#users.each do |user|
+#	#user = user.find(user_id)
+#	leading = user.leading
+#	leading.each do |follower|
+#		$redis.lpush("l#{user.id}", "#{follower.id}")
+#	end
+#end
 
 #list of recent tweets of the people you're following (tweet id)
 users.each do |user|
@@ -34,6 +34,7 @@ users.each do |user|
 
 	#push the ids of these tweets into redis
 	home_feed.each do |tweet|
-		$redis.lpush("f#{user.id}", "#{tweet.id}")
+		$redis.rpush("f#{user.id}", "#{tweet.id}")
+		$redis.lpop("f#{user.id}")
 	end
 end
