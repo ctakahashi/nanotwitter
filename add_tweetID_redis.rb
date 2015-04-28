@@ -4,6 +4,7 @@ require "sinatra/activerecord"
 require './config/environments'
 require './models/user'
 require './models/tweet'
+require './models/bond'
 
 users = User.all
 
