@@ -124,6 +124,8 @@ get '/' do
 		# end
 
 		@@tweet_count
+		@recent_tweets = $redis.lrange("home_page_feed", 0, -1).collect { |tweet| JSON.parse(tweet) }
+	
 		erb :index, :layout => :notSignedIn
 	end
 end

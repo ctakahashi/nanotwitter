@@ -18,7 +18,7 @@
 </div>
 <h3 class = "tweet-count" align="middle"><%= @@tweet_count%> Tweets and counting. <br>Take a look at what people are tweeting.</h3>
 <div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
-<% @@recent_tweets.each do |tweet|%>
+<% @recent_tweets.each do |tweet|%>
 		<div class = "tweet-list" >
 			<img class = "tweet_header" src=<%= tweet[:pic] %> alt="User's profile picture" style="width:40px;height:40px" >
 			<h3 class = "tweet_header">@<%= tweet[:username] %></h3>
