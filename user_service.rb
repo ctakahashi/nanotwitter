@@ -1,10 +1,10 @@
-get '/profile' do 
+get '/user/profile' do 
 	if session[:user_id]
 		user = User.find(session[:user_id])
 		if user
 			erb :home_feed, :locals => {:name => user.name,
 									  :username => user.username, 
-									  :tweets => user.tweets, 
+									  :tweets => user.tweets[0..99], 
 									  :user => user,
 									  :current_user => true,
 									  :logged_in_user => true,
@@ -24,14 +24,19 @@ get '/home' do
 		if user
 			following_tweets = Array.new
 			user.following.each do |followed_user|
-				followed_user.tweets.last(100).each do |tweet|
-					following_tweets.push(tweet)
-				end
+				following_tweets.concat(followed_user.tweets.last(100))
 			end
+
+			#user.following.each do |followed_user|
+			# => redis_indices = $redis.lrange("#{followed_user.id}", 0, 99)
+			# => redis_tweets = redis_indices.map |tweet| to an actual tweet
+			# => following_tweets.concat(redis_tweets)
+			#end
+
 			following_tweets.sort_by!{|tweet| tweet.created_at}
 			erb :profile, :locals => {:name => user.name,
 									  :username => user.username, 
-									  :tweets => following_tweets, 
+									  :tweets => following_tweets[0..99], 
 									  :user => user,
 									  :current_user => true,
 									  :logged_in_user => true,
@@ -54,7 +59,7 @@ put '/edit' do
 	if @user
 		params.delete_if { |key, value| value == "" || value == "PUT" }
 		@user.update_attributes(params)
-		redirect '/profile'
+		redirect '/user/profile'
 	else
 		error 404, {:error => "You're not logged in. Please go back and log in."}
 	end
@@ -69,12 +74,12 @@ get '/user/:username' do
 	if session[:user_id]
 		if user
 			if user.id == session[:user_id]
-				redirect '/profile'
+				redirect '/user/profile'
 			else
 				current = User.find(session[:user_id])
 				erb :profile, :locals => {:name => user.name,
 										  :username => user.username, 
-										  :tweets => user.tweets,
+										  :tweets => user.tweets[0..99],
 										  :pic => user.pic || Faker::Avatar.image,
 										  :user_id => user.id,
 										  :user => user,
@@ -90,7 +95,7 @@ get '/user/:username' do
 		if user
 			erb :profile, :layout => :notSignedIn, :locals => {:name => user.name,
 									  :username => user.username, 
-									  :tweets => user.tweets,
+									  :tweets => user.tweets[0..99],
 									  :pic => user.pic || Faker::Avatar.image,
 									  :user_id => user.id,
 									  :user => user,

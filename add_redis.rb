@@ -11,10 +11,10 @@ def reset
 	end
 end
 
-reset 
+# reset 
 
 tweets = Tweet.all
-#tweets = Tweet.all[34114..100176]
+#tweets = Tweet.all[lastone..-1]
 
 tweets.each do |tweet|
 	user = User.find(tweet.user_id)

@@ -10,7 +10,5 @@ class CreateUser < ActiveRecord::Migration
 			t.timestamps null: false
 		end
 
-		add_index :users, :pic, unique: true
-		add_index :users, :username, unique: true
 	end
 end

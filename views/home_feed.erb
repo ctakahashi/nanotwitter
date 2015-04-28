@@ -3,7 +3,7 @@
 		<img src=<%= pic %> alt="User's profile picture" style="width:200px;height:200px" >
 	</div>
 	<h3> <%= name %> </h3>
-	<h4> <%= username %> </h4>
+	<h4> @<%= username %> </h4>
 	<% if(logged_in_user && !current_user) %>
 		<% if me.following?(user)%>
 			<a href = <%= "/user/#{username}/unfollow"%> , class = "btn following-button"><span>Following</span></a>

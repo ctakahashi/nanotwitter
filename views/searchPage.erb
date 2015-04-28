@@ -1,7 +1,19 @@
 <% if @users %>
   <% @users.reverse.each do |user| %>
     <div>
-        <a href=<%= "/user/#{user.username}" %>><%=user.username%></a>
+        <a href=<%= "/user/#{user.username}" %>><%="@#{user.username}"%></a>
     </div>
   <% end %>
+<% elsif @tweets %>
+  <% @tweets.reverse.each do |tweet| %>
+    <div>
+    	<a href=<%= "/tweet/#{tweet.id}" %>> <%="##{tweet.text}"%></a>
+    </div>
+  <% end %>
+<% else %>
+  <div class="container tabs">
+    <h2> Please type a '@' symbol in front of a phrase to search for users </h2>
+    <h3>                               OR </h3>
+    <h2>                  type a '#' to search for tweets. </h2>
+  </div>
 <% end %>
