@@ -73,7 +73,6 @@ get '/' do
 		redirect '/home'
 	else
 		# unless @@recent_tweets
-		# 	@@tweet_count = Tweet.count
 		# 	@@test_user =  User.find_by_username("test_user")
 
 		# 	@@recent_tweets = []
@@ -90,6 +89,7 @@ get '/' do
 
 		unless $redis.llen("home_page_feed") == 100
 			tweets = Tweet.all.order(created_at: :desc).limit(100)
+		 	@@tweet_count = Tweet.count
 		
 			tweets.each do |tweet|
 				user = User.find(tweet.user_id)
@@ -121,8 +121,6 @@ get '/' do
 		# 	end
 		# 	REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
 		# end
-
-		@@tweet_count
 		@recent_tweets = $redis.lrange("home_page_feed", 0, -1).collect { |tweet| JSON.parse(tweet) }
 	
 		erb :index, :layout => :notSignedIn
