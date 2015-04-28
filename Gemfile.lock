@@ -29,7 +29,6 @@ GEM
     method_source (0.8.2)
     minitest (5.5.1)
     multi_json (1.11.0)
-    newrelic_rpm (3.11.1.284)
     pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -97,7 +96,6 @@ DEPENDENCIES
   activerecord
   faker
   json
-  newrelic_rpm
   pg
   pry
   puma
