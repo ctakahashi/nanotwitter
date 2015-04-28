@@ -89,7 +89,7 @@ get '/' do
 		# end
 
 		unless $redis.llen("home_page_feed") == 100
-			tweets = Tweet.all.order(created_at: :desc).limit(100).to_a
+			tweets = Tweet.all.order(created_at: :desc).limit(100).to_a.reverse
 		 	@@tweet_count = Tweet.count
 		
 			tweets.each do |tweet|
@@ -99,6 +99,7 @@ get '/' do
 			 						:username => user.username,
 			 						:pic => user.pic}.to_json)
 			end
+			$redis.ltrim("home_page_feed", 0, 99)
 		end
 
 
