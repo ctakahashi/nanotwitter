@@ -27,9 +27,8 @@ enable :method_override
 
 
 
-set :environment, :development
+# set :environment, :development
 
-@@recent_tweets = nil
 
 # REDIS.set(:recent_tweets, nil)
 # REDIS.set("tweets_queue_index", -1)

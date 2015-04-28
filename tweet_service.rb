@@ -4,13 +4,7 @@ post '/tweet' do
 						  user_id: session[:user_id])
 	if @tweet.valid?
 		$redis.lpush("#{@tweet.user_id}", "#{@tweet.id}")  #added recently 4/20/2015
-		$redis.rpop("home_page_feed")
-		$redis.lpush("home_page_feed", {:text => tweet.text,
-			 						:created_at => tweet.created_at,
-			 						:username => user.username,
-			 						:pic => user.pic}.to_json)
 		
-
 		# @@recent_tweets.unshift(:text => @tweet.text,
 		# 							:created_at => @tweet.created_at,
 		# 							:username => user.username,
