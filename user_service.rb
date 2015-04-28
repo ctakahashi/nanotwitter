@@ -2,9 +2,11 @@ get '/user/profile' do
 	if session[:user_id]
 		user = User.find(session[:user_id])
 		if user
+			tweets_list = $redis.lrange("#{user.id}", 0, 99)
+			tweets = tweets_list.collect { |tweet| Tweet.find(tweet) }
 			erb :home_feed, :locals => {:name => user.name,
 									  :username => user.username, 
-									  :tweets => user.tweets[0..99], 
+									  :tweets => tweets, 
 									  :user => user,
 									  :current_user => true,
 									  :logged_in_user => true,
