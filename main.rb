@@ -29,6 +29,7 @@ enable :method_override
 
 # set :environment, :development
 
+$redis.rpop("home_page_feed")
 
 # REDIS.set(:recent_tweets, nil)
 # REDIS.set("tweets_queue_index", -1)
@@ -88,7 +89,7 @@ get '/' do
 		# end
 
 		unless $redis.llen("home_page_feed") == 100
-			tweets = Tweet.all.order(created_at: :desc).limit(100)
+			tweets = Tweet.all.order(created_at: :desc).limit(100).to_a
 		 	@@tweet_count = Tweet.count
 		
 			tweets.each do |tweet|
