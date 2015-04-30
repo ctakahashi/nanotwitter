@@ -21,11 +21,12 @@ describe "service" do
           email: "ps@brandeis.edu"
     )
     user = User.find_by_username("psalas")
+    @user_id = user.id
     Tweet.create(text: "test tweet", user_id: user.id)
   end
 
   it "should return a user by username" do
-    get '/api/v1/users/psalas' 
+    get "/api/v1/users/#{@user_id}" 
     last_response.should be_ok
     attributes = JSON.parse(last_response.body) 
     attributes["name"].should == "Pito"
@@ -34,7 +35,7 @@ describe "service" do
   end
 
   it "should return the tweets of a user" do
-    get '/api/v1/users/psalas/tweets' 
+    get "/api/v1/users/#{@user_id}/tweets" 
     last_response.should be_ok
     attributes = JSON.parse(last_response.body) 
     attributes.first["text"].should == "test tweet"

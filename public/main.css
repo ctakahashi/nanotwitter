@@ -1,5 +1,12 @@
+
 body {
-	margin: 0 0 0 0;
+	margin: 0 0 0 0;	
+	background: transparent url(/test1.png) 50% 0 no-repeat;
+	color: black;
+}
+.navbar{
+	border-radius: 5px;
+	background: url("paper.gif") repeat scroll left top transparent;
 }
 #wrapper {
 	margin-left: auto;
@@ -188,9 +195,8 @@ a.forgotPass-button {
 }
 .tweet-list {
 	background-color: #01C9F5;
-	margin-bottom: 10px;
-	border-radius: 0px;
-	border-color: white;
+	border: 5px groove #98BF21;
+	border-radius: 2px;
 	word-wrap: break-word;
 }
 .tweet-scroll {

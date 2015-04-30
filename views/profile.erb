@@ -32,14 +32,17 @@
 		</ul> 
 		<div class="tab-content">
 			<div id = "Tweets" class="tab-pane active" >
-				<% tweets.reverse.each do |tweet| %>
-					<div class = "tweet-list">
-						<img class = "tweet_header" src=<%= User.find(tweet.user_id).pic %> alt="User's profile picture" style="width:40px;height:40px" >
-						<h3 class = "tweet_header">@<%= User.find(tweet.user_id).username %></h3>
-						<p>Posted on <%= tweet.created_at %></p>
-						<p><%=tweet.text %></p>
-					</div>
-				<% end %>
+				<div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
+					<% tweets.reverse.each do |tweet| %>
+						<div class = "tweet-list">
+							<img class = "tweet_header" src=<%= User.find(tweet.user_id).pic %> alt="User's profile picture" style="width:40px;height:40px" >
+							<%@username=User.find(tweet.user_id).username%>
+							<a class = "tweet_header" href='/user/<%=@username%>'>@<%=@username%></a>
+							<p>Posted on <%= tweet.created_at %></p>
+							<p><%=tweet.text %></p>
+						</div>
+					<% end %>
+				</div>
 			</div>
 			<div id="Following" class = "tab-pane">	
 				<% user.following.each do |followings| %>

@@ -175,7 +175,11 @@ get '/resetpassword' do
 end
 
 get '/about_us' do
-	erb :aboutus
+	if session[:user_id]
+		erb :aboutus
+	else 
+		erb :aboutus, :layout => :notSignedIn
+	end
 end
 
 get '/loaderio-6506d5de4416788ad7352f30b15c85b5/' do

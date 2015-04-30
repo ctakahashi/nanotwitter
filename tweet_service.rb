@@ -69,7 +69,7 @@ def new_tweets(user, tweet)
 	$redis.lpush("#{tweet.user_id}", "#{tweet.id}")
 	followers = $redis.lrange("l#{user.id}", 0, -1)
 	followers.each do |follower|
-		$redis.lpush("f#{follower.id}", "#{tweet.id}")
-		$redis.rpop("f#{follower.id}")
+		$redis.lpush("f#{follower}", "#{tweet.id}")
+		$redis.rpop("f#{follower}")
 	end
 end

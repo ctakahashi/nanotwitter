@@ -11,8 +11,8 @@ require './models/comment'
 require './models/retweet'
 
 # Get information about a specific user with his or her id
-get '/api/v1/users/:username' do 
-	user = User.find_by_username(params[:username])
+get '/api/v1/users/:id' do 
+	user = User.find(params[:id])
 	if user
 		user.to_json
 	else
@@ -20,8 +20,8 @@ get '/api/v1/users/:username' do
 	end
 end
 
-get '/api/v1/users/:username/tweets' do
-	user = User.find_by_username(params[:username])
+get '/api/v1/users/:id/tweets' do
+	user = User.find(params[:id])
 
 	if user
 		all_tweets = user.tweets
@@ -46,13 +46,13 @@ get '/api/v1/tweets/:id' do
 	end
 end
 
-get '/api/v1/tweets/recent/:num' do
+get '/api/v1/tweets/recent/?:num?' do
 	tweets = []
-	number_of_tweets = params[:num].to_i || 10
+	number_of_tweets = params[:num] || 10
 	last_id = Tweet.last.id
 	total_tweets_count = Tweet.count
 	count = 0
-	while tweets.size < number_of_tweets && count < last_id do
+	while tweets.size < number_of_tweets.to_i && count < last_id do
 		if Tweet.exists?(last_id - count)
 			tweets.push(Tweet.find(last_id - count))
 		end
@@ -61,17 +61,6 @@ get '/api/v1/tweets/recent/:num' do
 	tweets.to_json
 end
 
-# get '/api/v1/users/:id/comments' do
-# 	user = User.find(params[:id])
-
-# 	if user
-# 		all_comments = user.comments
-# 		if comments
-# 			all_comments.to_json
-# 		else
-# 			error 404, {:error => "User never made any comments"}.to_json
-# 		end
-# 	else
-# 		error 404, {:error => "User does not exist"}.to_json
-# 	end
-# end
+get '/api/v1/all_tweets' do 
+	Tweet.all.to_json
+end

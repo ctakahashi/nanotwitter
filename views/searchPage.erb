@@ -1,15 +1,21 @@
 <% if @users %>
+<h3 class = "tweet-count" align="middle">Results.</h3>
+<div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
   <% @users.reverse.each do |user| %>
     <div>
         <a href=<%= "/user/#{user.username}" %>><%="@#{user.username}"%></a>
     </div>
   <% end %>
+</div>
 <% elsif @tweets %>
+<h3 class = "tweet-count" align="middle">Results.</h3>
+<div class = "tweet-scroll" style= "overflow-y: scroll; height: 500px">
   <% @tweets.reverse.each do |tweet| %>
     <div>
     	<a href=<%= "/tweet/#{tweet.id}" %>> <%="##{tweet.text}"%></a>
     </div>
   <% end %>
+</div>
 <% else %>
   <div class="container tabs">
     <h2> Please type a '@' symbol in front of a phrase to search for users </h2>
