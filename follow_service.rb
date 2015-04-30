@@ -6,6 +6,7 @@ get '/user/:username/follow' do
 		follower.follow(leader)	
 		$redis.rpush("l#{leader.id}", "#{follower.id}")
 		adjust_home(follower)
+		$redis.lpush("#{follower.id}following", "#{leader.id}")
 		redirect "/user/#{username}"
 	end
 end
@@ -18,6 +19,7 @@ get '/user/:username/unfollow' do
 		follower.unfollow(leader)	
 		remove_follower(follower, leader)
 		adjust_home(follower)
+		$redis.LREM("#{follower.id}following", 0, "#{leader.id}")
 		redirect "/user/#{username}"
 	end
 end
@@ -44,5 +46,5 @@ def adjust_home(user)
 end
 
 def remove_follower(follower,leader)
-	$redis.LREM("l#{leader.id}", 1, "#{follower.id}")
+	$redis.LREM("l#{leader.id}", 0 , "#{follower.id}")
 end	

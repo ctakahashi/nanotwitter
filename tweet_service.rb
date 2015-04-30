@@ -26,7 +26,12 @@ post '/search' do
     elsif search_phrase[0] == '#'
     	@tweets = Tweet.search(search_phrase[1..-1]).order("created_at DESC").limit(100)
     end
-    erb :searchPage
+
+  	if session[:user_id]
+  		erb :searchPage
+  	else
+   		erb :searchPage, :layout => :notSignedIn
+	end
 end
 
 get '/tweet/:id' do

@@ -136,10 +136,11 @@ post '/register' do
 						email: params[:email],
 						pic: Faker::Avatar.image
 						)
-
 	if @user.valid?
 		#erb :index, :layout => :notSignedIn
 		session[:user_id] = @user.id
+		$redis.set("username#{@user.id}", "#{@user.username}")
+		$redis.set("pic#{@user.id}", "#{@user.pic}")
 		redirect '/user/profile'
 	else
 		erb :signup
@@ -152,6 +153,7 @@ get '/login' do
 	if @check
 		if @check.password == params[:password]
 			session[:user_id] = @check.id
+			puts "#{session[:user_id]}"
 			redirect '/user/profile'
 		else
 			erb :login_error, :layout => :notSignedIn

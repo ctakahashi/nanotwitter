@@ -29,13 +29,14 @@ get '/home' do
 			# user.following.each do |followed_user|
 			# 	following_tweets.concat(followed_user.tweets.last(100))
 			# end
-			following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99))
+			following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99)).to_a
 			#user.following.each do |followed_user|
 			# => redis_indices = $redis.lrange("#{followed_user.id}", 0, 99)
 			# => redis_tweets = redis_indices.map |tweet| to an actual tweet
 			# => following_tweets.concat(redis_tweets)
 			#end
-
+			following_users = User.where(id: $redis.lrange("#{user.id}following", 0, -1)).to_a
+			followers = User.where(id: $redis.lrange("l#{user.id}", 0 ,-1)).to_a
 			# following_tweets.sort_by!{|tweet| tweet.created_at}
 			erb :profile, :locals => {:name => user.name,
 									  :username => user.username, 
@@ -43,8 +44,9 @@ get '/home' do
 									  :user => user,
 									  :current_user => true,
 									  :logged_in_user => true,
-									  :pic => user.pic || Faker::Avatar.image
-									}
+									  :pic => user.pic || Faker::Avatar.image,
+									  :followers => followers,
+									  :following => following_users}
 		else
 			error 404, {:error => "The user is not found or you are not logged in."}.to_json
 		end
