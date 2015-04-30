@@ -21,8 +21,7 @@
 <% @recent_tweets.each do |tweet|%>
 		<div class = "tweet-list" >
 			<img class = "tweet_header" src=<%= tweet["pic"] %> alt="User's profile picture" style="width:40px;height:40px" >
-			<% @username=tweet["username"]%>
-			<a class = "tweet_header" href='/user/<%=@username%>'>@<%= tweet["username"] %></a>
+			<a class = "tweet_header" >@<%= tweet["username"] %></a>
 			<p>Posted on <%= tweet["created_at"] %></p>
 			<p><%= tweet["text"] %></p>
 		</div>
