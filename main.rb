@@ -20,10 +20,10 @@ require './api_service.rb'
 require 'sinatra/paginate'
 require './test_service.rb'
 
-configure { set :server, :puma }
+# configure { set :server, :puma }
 
 enable :sessions
-enable :method_override
+#enable :method_override
 
 
 
