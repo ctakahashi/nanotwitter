@@ -38,7 +38,6 @@ def adjust_home(user)
 	#push the ids of these tweets into redis
 	home_feed.each do |tweet|
 		$redis.rpush("f#{user.id}", "#{tweet.id}")
-		#$redis.lpop("f#{user.id}")
 	end
 end
 

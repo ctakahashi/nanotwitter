@@ -1,6 +1,5 @@
 require 'json'
 require 'sinatra'
-#require 'newrelic_rpm'
 require 'active_record'
 require "sinatra/activerecord"
 require 'pry'
@@ -70,24 +69,8 @@ get '/' do
 	if session[:user_id]
 		redirect '/home'
 	else
-		# unless @@recent_tweets
-		# 	@@test_user =  User.find_by_username("test_user")
-
-		# 	@@recent_tweets = []
-
-		# 	tweets = Tweet.last(100).reverse
-		# 	tweets.each do |tweet|
-		# 		user = User.find(tweet.user_id)
-		# 		@@recent_tweets.push(:text => tweet.text,
-		# 	 						:created_at => tweet.created_at,
-		# 	 						:username => user.username,
-		# 	 						:pic => user.pic)
-		# 	end
-		# end
-
 		unless $redis.llen("home_page_feed") == 100
 			tweets = Tweet.all.order(created_at: :desc).limit(100).to_a.reverse
-		 	# @@tweet_count = Tweet.count
 		
 			tweets.each do |tweet|
 				user = User.find(tweet.user_id)

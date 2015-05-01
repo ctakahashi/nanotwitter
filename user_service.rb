@@ -6,7 +6,6 @@ get '/profile' do
 		# end
 		if user
 			tweets_list = $redis.lrange("#{user.id}", 0, 99)
-			# tweets = tweets_list.collect { |tweet| Tweet.find(tweet) }
 			tweets = Tweet.where(id: tweets_list)
 			erb :home_feed, :locals => {:name => user.name,
 									  :username => user.username, 
@@ -28,18 +27,7 @@ get '/home' do
 	if session[:user_id]
 		user = User.find(session[:user_id])
 		if user
-			# following_tweets = Array.new
-			# user.following.each do |followed_user|
-			# 	following_tweets.concat(followed_user.tweets.last(100))
-			# end
 			following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99))
-			#user.following.each do |followed_user|
-			# => redis_indices = $redis.lrange("#{followed_user.id}", 0, 99)
-			# => redis_tweets = redis_indices.map |tweet| to an actual tweet
-			# => following_tweets.concat(redis_tweets)
-			#end
-
-			# following_tweets.sort_by!{|tweet| tweet.created_at}
 			erb :profile, :locals => {:name => user.name,
 									  :username => user.username, 
 									  :tweets => following_tweets[0..99], 
