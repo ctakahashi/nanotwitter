@@ -13,7 +13,7 @@ get '/test_tweet' do
 end
 
 get '/test_follow' do
-	if session[:user_id] != 1006 then session[:user_id] = 1006 end
+	#if session[:user_id] != 1006 then session[:user_id] = 1006 end
 	test_user = User.find_by_username("test_user")
 	user_id = rand(1..User.count)
 	user = User.find(user_id)
@@ -26,6 +26,19 @@ get '/test_follow' do
 		adjust_home(test_user)
 	end
 	"test_user has followed/unfollowed someone!"
+end
+
+get '/test_user_homefeed' do 
+	user = user.find(1006)
+	following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99))
+	erb :profile, :locals => {:name => user.name,
+							:username => user.username, 
+							:tweets => following_tweets[0..99], 
+							:user => user,
+							:current_user => true,
+							:logged_in_user => true,
+							:pic => user.pic || Faker::Avatar.image
+							}
 end
 
 get '/reset' do

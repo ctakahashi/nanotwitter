@@ -1,9 +1,9 @@
 get '/profile' do 
 	if session[:user_id]
 		user = User.find(session[:user_id])
-		if user.username == "test_user"
-			redirect '/home'
-		end
+		# if user.username == "test_user"
+		# 	redirect '/home'
+		# end
 		if user
 			tweets_list = $redis.lrange("#{user.id}", 0, 99)
 			# tweets = tweets_list.collect { |tweet| Tweet.find(tweet) }
