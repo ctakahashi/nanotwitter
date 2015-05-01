@@ -31,9 +31,6 @@ enable :method_override
 
 $redis.rpop("home_page_feed")
 
-# REDIS.set(:recent_tweets, nil)
-# REDIS.set("tweets_queue_index", -1)
-
 Struct.new('Result', :total, :size, :users)
 class App < Sinatra::Base
 	register Sinatra::AssetPack
