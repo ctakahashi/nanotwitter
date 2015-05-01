@@ -35,7 +35,6 @@ def adjust_home(user)
 	#sort by created at, reverse the order and take the first 100
 	home_feed.sort_by! {|tweet| tweet.created_at}
 	home_feed = home_feed.reverse[0..99]
-
 	#push the ids of these tweets into redis
 	home_feed.each do |tweet|
 		$redis.rpush("f#{user.id}", "#{tweet.id}")
@@ -45,4 +44,8 @@ end
 
 def remove_follower(follower,leader)
 	$redis.LREM("l#{leader.id}", 0 , "#{follower.id}")
+	leader_tweets = $redis.lrange("#{leader.id}", 0, -1)
+	leader_tweets.each do |tweet_id|
+		$redis.LREM("f#{follower.id}", 0 "#{tweet_id}")
+	end
 end	
