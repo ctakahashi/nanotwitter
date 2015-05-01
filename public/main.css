@@ -53,34 +53,10 @@ a.forgotPass-button {
 }
 .navbar {
 	margin-bottom: 0;
-
-
 }
 .header {
 	white-space: nowrap;
 }
-/*.btn{
-	border-radius: 0px;
-	color: #01C9F5;
-
-}
-.btn:link {
-	color: white;
-	background-color: #01C9F5;
-}
-.btn:visited {
-	color: white;
-	background-color: #01C9F5;
-}
-
-.btn:hover {
-	color: white;
-	background-color: #01C9F5;
-}
-.btn:active {
-	color: white;
-	background-color: #01C9F5;
-}*/
 .login_button {
 	margin-top: 5px;
 }
