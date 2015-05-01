@@ -3,7 +3,7 @@ use Rack::MethodOverride
 
 
 
-if ENV['RAILS_ENV'] == 'production' 
+if ENV['RAILS_ENV'] == 'test' 
   require 'unicorn/worker_killer'
 
   max_request_min =  500
