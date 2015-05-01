@@ -3,13 +3,6 @@ post '/tweet' do
 	@tweet = Tweet.create(text: params[:tweet_text],
 						  user_id: session[:user_id])
 	if @tweet.valid?
-		# $redis.lpush("#{@tweet.user_id}", "#{@tweet.id}")  #added recently 4/20/2015
-		
-		# @@recent_tweets.unshift(:text => @tweet.text,
-		# 							:created_at => @tweet.created_at,
-		# 							:username => user.username,
-		# 							:pic => user.pic)
-		# @@recent_tweets.pop
 		new_tweets(user, @tweet)
 		redirect "/user/#{user.username}"
 		@@tweet_count += 1
@@ -72,6 +65,11 @@ end
 
 def new_tweets(user, tweet)
 	$redis.lpush("#{tweet.user_id}", "#{tweet.id}")
+	$redis.lpush("home_page_feed", {:text => tweet.text,
+			 						:created_at => tweet.created_at,
+			 						:username => user.username,
+			 						:pic => user.pic}.to_json)
+	$redis.rpop("home_page_feed")	
 	followers = $redis.lrange("l#{user.id}", 0, -1)
 	followers.each do |follower|
 		$redis.lpush("f#{follower}", "#{tweet.id}")

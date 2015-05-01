@@ -1,34 +1,41 @@
 # @@test_user =  User.find_by_username("test_user")
 
 get '/test_tweet' do
+	test_user = User.find_by_username("test_user")
 
 	@tweet = Tweet.create(text: Faker::Lorem.sentence,
-					  	user_id: @@test_user.id)
-		@@recent_tweets.unshift(:text => @tweet.text,
-									:created_at => @tweet.created_at,
-									:username => @@test_user.username,
-									:pic => @@test_user.pic)
-		@@recent_tweets.pop
+					  	user_id: test_user.id)
+	if @tweet.valid?
+		$redis.lpush("home_page_feed", {:text => tweet.text,
+			 						:created_at => tweet.created_at,
+			 						:username => user.username,
+			 						:pic => user.pic}.to_json)
+		$redis.rpop("home_page_feed")
 		@@tweet_count += 1
 		"test_user has tweeted!"
+	end
 end
 
 get '/test_follow' do
+	test_user = User.find_by_username("test_user")
+
 	user_id = rand(1..User.count)
 	user = User.find(user_id)
-	if @@test_user.following?(user)
-		@@test_user.unfollow(user)
+	if test_user.following?(user)
+		test_user.unfollow(user)
 	else
-		@@test_user.follow(user)
+		test_user.follow(user)
 	end
 	"test_user has followed/unfollowed someone!"
 end
 
 get '/reset' do
-	@@tweet_count -= Tweet.where(user_id: @@test_user.id).count
-	Tweet.where(user_id: @@test_user.id).destroy_all
-	@@test_user.following.each do |user|
-		@@test_user.unfollow(user)
+	test_user = User.find_by_username("test_user")
+
+	@@tweet_count -= Tweet.where(user_id: test_user.id).count
+	Tweet.where(user_id: test_user.id).destroy_all
+	test_user.following.each do |user|
+		test_user.unfollow(user)
 	end
 	last_id = Tweet.last.id
 	@@recent_tweets = []
