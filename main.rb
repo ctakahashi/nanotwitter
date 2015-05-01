@@ -103,26 +103,6 @@ get '/' do
 		end
 
 
-		# if REDIS.get("tweets_queue_index") == "-1" 
-		# 	REDIS.set("tweets_queue_index", 0)
-		# 	count = 0
-		# 	while REDIS.get("tweets_queue_index") != "100" && count < last_id do
-		# 		# binding.pry
-		# 		if Tweet.exists?(last_id - count)
-		# 			tweet = Tweet.find(last_id - count)
-		# 			user = User.find(tweet.user_id)
-		# 			tweet_num = "tweet".concat REDIS.get("tweets_queue_index")
-		# 			REDIS.hmset(tweet_num, "text", tweet.text, 
-		# 					"created_at", tweet.created_at, 
-		# 					"username", user.username,
-		# 					"pic", user.pic)
-		# 			REDIS.incr("tweets_queue_index")
-		# 			@@recent_tweets.push(REDIS.hgetall(tweet_num))
-		# 		end
-		# 		count += 1
-		# 	end
-		# 	REDIS.set("tweets_queue_index", REDIS.get("tweets_queue_index").to_i % 100)
-		# end
 		@recent_tweets = $redis.lrange("home_page_feed", 0, -1).collect { |tweet| JSON.parse(tweet) }
 	
 		erb :index, :layout => :notSignedIn
