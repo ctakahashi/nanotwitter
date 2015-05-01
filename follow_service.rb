@@ -46,6 +46,6 @@ def remove_follower(follower,leader)
 	$redis.LREM("l#{leader.id}", 0 , "#{follower.id}")
 	leader_tweets = $redis.lrange("#{leader.id}", 0, -1)
 	leader_tweets.each do |tweet_id|
-		$redis.LREM("f#{follower.id}", 0 "#{tweet_id}")
+		$redis.LREM("f#{follower.id}", 0, "#{tweet_id}")
 	end
 end	
