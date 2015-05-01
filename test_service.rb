@@ -15,6 +15,7 @@ end
 get '/test_follow' do
 	if session[:user_id] != 1006 then session[:user_id] = 1006 end
 	test_user = User.find_by_username("test_user")
+	user_ids = [1..User.count]
 
 	user_id = rand(1..User.count)
 	user = User.find(user_id)
@@ -23,6 +24,7 @@ get '/test_follow' do
 		remove_follower(test_user, user)
 	else
 		test_user.follow(user)
+		$redis.rpush("l#{user.id}", "#{test_user.id}")
 		adjust_home(test_user)
 	end
 	"test_user has followed/unfollowed someone!"
