@@ -1,4 +1,4 @@
-get '/user/profile' do 
+get '/profile' do 
 	if session[:user_id]
 		user = User.find(session[:user_id])
 		if user.username == "test_user"
@@ -65,7 +65,7 @@ put '/edit' do
 	if @user
 		params.delete_if { |key, value| value == "" || value == "PUT" }
 		@user.update_attributes(params)
-		redirect '/user/profile'
+		redirect '/profile'
 	else
 		error 404, {:error => "You're not logged in. Please go back and log in."}
 	end
@@ -80,7 +80,7 @@ get '/user/:username' do
 	if session[:user_id]
 		if user
 			if user.id == session[:user_id]
-				redirect '/user/profile'
+				redirect '/profile'
 			else
 				current = User.find(session[:user_id])
 
