@@ -90,7 +90,7 @@ get '/' do
 
 		unless $redis.llen("home_page_feed") == 100
 			tweets = Tweet.all.order(created_at: :desc).limit(100).to_a.reverse
-		 	@@tweet_count = Tweet.count
+		 	# @@tweet_count = Tweet.count
 		
 			tweets.each do |tweet|
 				user = User.find(tweet.user_id)

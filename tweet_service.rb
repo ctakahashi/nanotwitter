@@ -5,7 +5,7 @@ post '/tweet' do
 	if @tweet.valid?
 		new_tweets(user, @tweet)
 		redirect "/user/#{user.username}"
-		@@tweet_count += 1
+		# @@tweet_count += 1
 	else
 		error 404, {:error => "The tweet was invalid!"}
 	end

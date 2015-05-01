@@ -7,7 +7,7 @@ get '/test_tweet' do
 					  	user_id: test_user.id)
 	if @tweet.valid?
 		new_tweets(test_user, @tweet)
-		@@tweet_count += 1
+		# @@tweet_count += 1
 		"test_user has tweeted!"
 	end
 end
