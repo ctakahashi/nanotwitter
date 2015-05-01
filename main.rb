@@ -121,7 +121,7 @@ post '/register' do
 		session[:user_id] = @user.id
 		$redis.set("username#{@user.id}", "#{@user.username}")
 		$redis.set("pic#{@user.id}", "#{@user.pic}")
-		redirect '/user/profile'
+		redirect '/profile'
 	else
 		erb :signup
 	end
@@ -134,7 +134,7 @@ get '/login' do
 		if @check.password == params[:password]
 			session[:user_id] = @check.id
 			puts "#{session[:user_id]}"
-			redirect '/user/profile'
+			redirect '/profile'
 		else
 			erb :login_error, :layout => :notSignedIn
 		end
