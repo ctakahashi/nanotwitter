@@ -25,7 +25,7 @@ get '/test_follow' do
 	"test_user has followed/unfollowed someone!"
 end
 
-get '/test_user_homefeed' do 
+get '/test_user' do 
 	user = User.find(1006)
 	following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99))
 	erb :profile, :locals => {:name => user.name,
@@ -38,7 +38,7 @@ get '/test_user_homefeed' do
 							}
 end
 
-get '/reset' do
+get '/test_reset' do
 	test_user = User.find_by_username("test_user")
 	Tweet.where(user_id: test_user.id).destroy_all
 	test_user.following.each do |user|
