@@ -5,7 +5,7 @@ get '/user/:username/follow' do
 		username=leader.username	
 		follower.follow(leader)	
 		$redis.rpush("l#{leader.id}", "#{follower.id}")
-		adjust_home(leader)
+		adjust_home(follower)
 		redirect "/user/#{username}"
 	end
 end
@@ -17,7 +17,7 @@ get '/user/:username/unfollow' do
 		username=leader.username	
 		follower.unfollow(leader)	
 		remove_follower(follower, leader)
-		adjust_home(leader)
+		adjust_home(follower)
 		redirect "/user/#{username}"
 	end
 end
