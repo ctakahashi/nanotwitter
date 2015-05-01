@@ -1,6 +1,6 @@
-#require './main'
-#use Rack::MethodOverride
-#run Sinatra::Application
+require './main'
+use Rack::MethodOverride
+
 
 
 if ENV['RAILS_ENV'] == 'production' 
@@ -20,6 +20,4 @@ if ENV['RAILS_ENV'] == 'production'
 end
 
 # --- End of unicorn worker killer code ---
-
-require ::File.expand_path('../config/environment',  __FILE__)
-run YourApp::Application
+run Sinatra::Application
