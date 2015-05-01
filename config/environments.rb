@@ -24,7 +24,8 @@ configure :production do
       :username => db.user,
       :password => db.password,
       :database => db.path[1..-1],
-      :encoding => 'utf8'
+      :encoding => 'utf8',
+      :pool => ENV['DB_POOL'] || ENV['MAX_THREADS'] || 16
   )
 end
 
