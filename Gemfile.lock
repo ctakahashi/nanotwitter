@@ -23,6 +23,7 @@ GEM
     faker (1.4.3)
       i18n (~> 0.5)
     ffi (1.9.8)
+    get_process_mem (0.2.0)
     i18n (0.7.0)
     jsmin (1.0.1)
     json (1.8.2)
@@ -90,6 +91,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    unicorn-worker-killer (0.4.3)
+      get_process_mem (~> 0)
+      unicorn (~> 4)
     vegas (0.1.11)
       rack (>= 1.0.0)
 
@@ -115,3 +119,4 @@ DEPENDENCIES
   sinatra-paginate
   typhoeus
   unicorn
+  unicorn-worker-killer
