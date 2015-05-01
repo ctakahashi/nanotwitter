@@ -29,8 +29,6 @@ end
 
 get '/reset' do
 	test_user = User.find_by_username("test_user")
-
-	@@tweet_count -= Tweet.where(user_id: test_user.id).count
 	Tweet.where(user_id: test_user.id).destroy_all
 	test_user.following.each do |user|
 		test_user.unfollow(user)
