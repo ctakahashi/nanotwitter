@@ -29,7 +29,7 @@ get '/test_follow' do
 end
 
 get '/test_user_homefeed' do 
-	user = user.find(1006)
+	user = User.find(1006)
 	following_tweets = Tweet.where(id: $redis.lrange("f#{user.id}", 0, 99))
 	erb :profile, :locals => {:name => user.name,
 							:username => user.username, 
