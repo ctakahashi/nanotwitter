@@ -36,12 +36,11 @@ tweets.each do |tweet|
 	)
 end
 
-(1..30) do |user|
+User.all.each do |user|
 	rand(3..6).times do
-		current_user = User.find(user)
 		rand_user = User.find(rand(1..30))
-		unless current_user == rand_user || current_user.following?(rand_user)
-			current_user.follow(other_user)
+		unless user == rand_user || user.following?(rand_user)
+			user.follow(other_user)
 		end
 	end
 end
