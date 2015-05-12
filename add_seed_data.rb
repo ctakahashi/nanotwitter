@@ -11,10 +11,10 @@ require './models/bond'
 require 'csv'
 
 CSV.foreach("./seeds/users.csv") do |rows|
-		if rows[0]
+		break if rows[0] > 30
 		user = User.create(name: rows[1],
 				username: rows[1],
-				password: Faker::Internet.password(6, 20),
+				password: "password",
 				email: "#{rows[1]}@gmail.com",
 				pic: Faker::Avatar.image
 		)
@@ -22,6 +22,7 @@ end
 
 tweets = []
 CSV.foreach("./seeds/tweets.csv") do |rows|
+	break if rows[0] > 30
 	tweets.push(%W{ #{rows[0]}, #{rows[1]}, #{rows[2]} })
 end
 
@@ -35,8 +36,12 @@ tweets.each do |tweet|
 	)
 end
 
-CSV.foreach("./seeds/follows.csv") do |rows|
-	current_user = User.find(rows[0])
-	other_user = User.find(rows[1])
-	current_user.follow(other_user)
+(1..30) do |user|
+	rand(3..6).times do
+		current_user = User.find(user)
+		rand_user = User.find(rand(1..30))
+		unless current_user == rand_user || current_user.following?(rand_user)
+			current_user.follow(other_user)
+		end
+	end
 end

@@ -24,8 +24,6 @@ require './test_service.rb'
 enable :sessions
 #enable :method_override
 
-
-
 # set :environment, :development
 
 $redis.del("home_page_feed")
