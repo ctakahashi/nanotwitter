@@ -28,7 +28,7 @@ enable :sessions
 
 # set :environment, :development
 
-$redis.rpop("home_page_feed")
+$redis.del("home_page_feed")
 
 Struct.new('Result', :total, :size, :users)
 class App < Sinatra::Base
