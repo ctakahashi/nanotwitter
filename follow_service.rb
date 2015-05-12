@@ -25,6 +25,7 @@ end
 def adjust_home(user)
 	following = user.following
 	home_feed = Array.new
+	$redis.del("f{user.id}")
 
 	#each user, concat their last 100 tweets to home feed
 	following.each do |leading_user|
