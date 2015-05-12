@@ -11,7 +11,7 @@ require './models/bond'
 require 'csv'
 
 CSV.foreach("./seeds/users.csv") do |rows|
-		break if rows[0] > 30
+		break if rows[0].to_i > 30
 		user = User.create(name: rows[1],
 				username: rows[1],
 				password: "password",
@@ -22,7 +22,7 @@ end
 
 tweets = []
 CSV.foreach("./seeds/tweets.csv") do |rows|
-	break if rows[0] > 30
+	break if rows[0].to_i > 30
 	tweets.push(%W{ #{rows[0]}, #{rows[1]}, #{rows[2]} })
 end
 
