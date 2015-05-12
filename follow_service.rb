@@ -28,7 +28,8 @@ def adjust_home(user)
 
 	#each user, concat their last 100 tweets to home feed
 	following.each do |leading_user|
-		their_tweets = leading_user.tweets.last(100)
+		their_tweets = leading_user.tweets.sort_by { |tweet| tweet.created_at }
+		their_tweets = their_tweets.last(100)
 		home_feed.concat(their_tweets)
 	end
 

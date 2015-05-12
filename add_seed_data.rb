@@ -40,7 +40,7 @@ User.all.each do |user|
 	rand(3..6).times do
 		rand_user = User.find(rand(1..30))
 		unless user == rand_user || user.following?(rand_user)
-			user.follow(other_user)
+			user.follow(rand_user)
 		end
 	end
 end
